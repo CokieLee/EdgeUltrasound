@@ -6,7 +6,8 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 
-WORKBOOK_PATH = Path(__file__).parent / "Stanford_Murine_Fat_Quantification" / "SoSDataAll.xlsx"
+WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+WORKBOOK_PATH = WORKSPACE_ROOT / "Stanford_Murine_Fat_Quantification" / "SoSDataAll.xlsx"
 OUTPUT_PATH = Path(__file__).parent / "training_targets.csv"
 
 
@@ -52,23 +53,28 @@ def clean_value(value):
 def export_training_targets(workbook_path=WORKBOOK_PATH, output_path=OUTPUT_PATH):
     workbook = load_workbook(workbook_path, data_only=True, read_only=True)
     sheet = workbook["Data"]
-    output_fields = list(TARGET_COLUMNS)
+    output_fields = ["rat_index", *TARGET_COLUMNS]
 
     with output_path.open("w", newline="", encoding="utf-8") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=output_fields)
         writer.writeheader()
 
         # Row 1 is a category header and row 2 contains the actual column labels.
+        rat_index = 0
         for row in sheet.iter_rows(min_row=3, values_only=True):
             rat_id = clean_value(row[TARGET_COLUMNS["rat_id"]])
             if rat_id == "":
                 continue
-            writer.writerow(
-                {
-                    field: clean_value(row[column_index])
-                    for field, column_index in TARGET_COLUMNS.items()
-                }
-            )
+            rat_index += 1
+            output_row = {
+                field: clean_value(row[column_index])
+                for field, column_index in TARGET_COLUMNS.items()
+            }
+            output_row["rat_index"] = rat_index
+            writer.writerow({field: output_row[field] for field in output_fields})
+
+    if rat_index != 20:
+        raise ValueError(f"Expected 20 rat records, found {rat_index}")
 
 
 if __name__ == "__main__":
