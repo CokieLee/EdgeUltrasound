@@ -1,0 +1,10 @@
+{
+    "init_params": {
+        "spiking": false
+    },
+    "device_name": "CPU",
+    "parameter_count": 66289,
+    "device": "cpu",
+    "macs": 180211328.0,
+    "note": "v2"
+}

@@ -1,0 +1,10 @@
+{
+    "init_params": {
+        "spiking": true
+    },
+    "device_name": "A100",
+    "parameter_count": 66289,
+    "device": "cuda",
+    "macs": 283785728.0,
+    "note": "v2"
+}
