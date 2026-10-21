@@ -69,8 +69,9 @@ def linear_regression(measurements):
     residual_sum_squares = sum(
         (fat - fitted) ** 2 for fat, fitted in zip(true_fat, fitted_fat)
     )
+    mean_squared_error = residual_sum_squares / len(true_fat)
     r_squared = 1 - residual_sum_squares / total_sum_squares
-    return slope, intercept, r_squared
+    return slope, intercept, r_squared, mean_squared_error
 
 
 def update_training_targets(data_path, slope, intercept):
@@ -117,7 +118,8 @@ def plot_linear_regression(measurements, slope, intercept, r_squared):
 
 if __name__ == "__main__":
     measurements = load_measurements()
-    slope, intercept, r_squared = linear_regression(measurements)
+    slope, intercept, r_squared, mean_squared_error = linear_regression(measurements)
+    print(f"Linear regression MSE: {mean_squared_error:.6f} (% fat)^2")
     update_training_targets(DATA_PATH, slope, intercept)
     plot_estimates(measurements)
     plot_linear_regression(measurements, slope, intercept, r_squared)
