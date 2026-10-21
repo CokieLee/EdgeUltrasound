@@ -13,10 +13,9 @@ Optional paths:
 """
 
 import argparse
-import shutil
+import os
 import sys
 import tempfile
-import zipfile
 from collections import Counter
 from pathlib import Path
 
@@ -31,6 +30,8 @@ DEFAULT_OUTPUT_DIR = SCRIPT_ROOT / "Stanford_Murine_RawRFData_TrainingFormatted"
 # Set to 1 to skip valid outputs that already exist; set to 0 to regenerate all rats.
 SKIP_EXISTING_RATS = 1
 INITIAL_SAMPLES_TO_REMOVE = 64
+# Set to None to process all discovered rats, or use a list such as [1, 4].
+RATS_TO_PROCESS = [6]
 
 if str(SCRIPT_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPT_ROOT))
@@ -49,6 +50,13 @@ def first_fsa_file(rat_dir):
     return fsa_files[0] if fsa_files else None
 
 
+def rat_number(rat_dir):
+    try:
+        return int(rat_dir.name[3:])
+    except ValueError:
+        return None
+
+
 def dataset_for_file(h5_file):
     datasets = all_datasets(h5_file)
     candidates = candidate_datasets(datasets)
@@ -57,28 +65,22 @@ def dataset_for_file(h5_file):
     return candidates[0]
 
 
-def write_array_to_zip(zip_file, name, array):
-    with zip_file.open(name, "w", force_zip64=True) as destination:
-        np.lib.format.write_array(destination, np.asarray(array), allow_pickle=False)
-
-
 def is_valid_formatted_output(output_path):
     if not output_path.exists():
         return False
     try:
-        with zipfile.ZipFile(output_path, mode="r") as archive:
+        with h5py.File(output_path, mode="r") as archive:
             required_files = {
-                "rf_data.npy",
-                "frame_count.npy",
-                "event_count.npy",
-                "channel_count.npy",
-                "sample_count.npy",
-                "initial_samples_removed.npy",
+                "rf_data",
+                "receive_indices",
+                "start_samples",
+                "end_samples",
+                "frame_indices",
             }
-            if not required_files.issubset(archive.namelist()):
+            if not required_files.issubset(archive.keys()):
                 return False
-            return archive.testzip() is None
-    except (OSError, zipfile.BadZipFile):
+            return archive["rf_data"].ndim == 4
+    except (OSError, KeyError):
         return False
 
 
@@ -90,6 +92,7 @@ def save_formatted_rat(
     initial_samples_removed,
 ):
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_output_path = output_path.with_suffix(".tmp.h5")
     event_count = rf_data.shape[1]
     channel_count = rf_data.shape[2]
     sample_count = rf_data.shape[3]
@@ -111,38 +114,54 @@ def save_formatted_rat(
         dtype=np.int64,
     )
 
-    with zipfile.ZipFile(
-        output_path,
-        mode="w",
-        compression=zipfile.ZIP_DEFLATED,
-        compresslevel=1,
-    ) as archive:
-        write_array_to_zip(archive, "rf_data.npy", rf_data)
-        write_array_to_zip(archive, "receive_indices.npy", receive_indices)
-        write_array_to_zip(archive, "start_samples.npy", start_samples)
-        write_array_to_zip(archive, "end_samples.npy", end_samples)
-        write_array_to_zip(archive, "frame_indices.npy", frame_indices)
-        write_array_to_zip(archive, "frame_count.npy", np.array(frame_count, dtype=np.int64))
-        write_array_to_zip(archive, "event_count.npy", np.array(event_count, dtype=np.int64))
-        write_array_to_zip(archive, "channel_count.npy", np.array(channel_count, dtype=np.int64))
-        write_array_to_zip(archive, "sample_count.npy", np.array(sample_count, dtype=np.int64))
-        write_array_to_zip(
-            archive,
-            "initial_samples_removed.npy",
-            np.array(initial_samples_removed, dtype=np.int64),
-        )
-        write_array_to_zip(
-            archive,
-            "sampling_frequency_hz.npy",
-            np.array(sampling_frequency if sampling_frequency is not None else np.nan),
-        )
+    try:
+        with h5py.File(temporary_output_path, mode="w") as archive:
+            dataset = archive.create_dataset(
+                "rf_data",
+                shape=rf_data.shape,
+                dtype=rf_data.dtype,
+                chunks=(1, 1, channel_count, sample_count),
+                compression="lzf",
+            )
+            for frame_index in range(frame_count):
+                for event_index in range(event_count):
+                    dataset[frame_index, event_index] = rf_data[frame_index, event_index]
+
+            archive.create_dataset("receive_indices", data=receive_indices)
+            archive.create_dataset("start_samples", data=start_samples)
+            archive.create_dataset("end_samples", data=end_samples)
+            archive.create_dataset("frame_indices", data=frame_indices)
+            archive.create_dataset("frame_count", data=np.array(frame_count, dtype=np.int64))
+            archive.create_dataset("event_count", data=np.array(event_count, dtype=np.int64))
+            archive.create_dataset("channel_count", data=np.array(channel_count, dtype=np.int64))
+            archive.create_dataset("sample_count", data=np.array(sample_count, dtype=np.int64))
+            archive.create_dataset(
+                "initial_samples_removed",
+                data=np.array(initial_samples_removed, dtype=np.int64),
+            )
+            archive.create_dataset(
+                "sampling_frequency_hz",
+                data=np.array(sampling_frequency if sampling_frequency is not None else np.nan),
+            )
+            archive.attrs["format"] = "Verasonics FSA training RF"
+            archive.attrs["tensor_order"] = "frames,events,channels,samples"
+        os.replace(temporary_output_path, output_path)
+    except Exception:
+        if temporary_output_path.exists():
+            temporary_output_path.unlink()
+        raise
 
 
 def format_rat(rat_dir, output_dir):
-    output_path = output_dir / f"{rat_dir.name}_FSA_frames.npz"
-    if SKIP_EXISTING_RATS and is_valid_formatted_output(output_path):
-        print(f"{rat_dir.name}: existing valid output found; skipped")
-        return None
+    output_path = output_dir / f"{rat_dir.name}_FSA_frames.h5"
+    legacy_output_path = output_dir / f"{rat_dir.name}_FSA_frames.npz"
+    if SKIP_EXISTING_RATS:
+        if is_valid_formatted_output(output_path):
+            print(f"{rat_dir.name}: existing valid HDF5 output found; skipped")
+            return None
+        if legacy_output_path.exists():
+            print(f"{rat_dir.name}: existing NPZ output found; skipped")
+            return None
 
     source_file = first_fsa_file(rat_dir)
     if source_file is None:
@@ -231,12 +250,16 @@ def main():
     output_dir = args.output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     rat_dirs = sorted(path for path in input_root.glob("Rat*") if path.is_dir())
+    if RATS_TO_PROCESS is not None:
+        requested_rats = set(RATS_TO_PROCESS)
+        rat_dirs = [path for path in rat_dirs if rat_number(path) in requested_rats]
     if not rat_dirs:
-        raise FileNotFoundError(f"No Rat* directories found under {input_root}")
+        selection = "selected" if RATS_TO_PROCESS is not None else "Rat*"
+        raise FileNotFoundError(f"No {selection} directories found under {input_root}")
 
     print(f"Input root: {input_root}")
     print(f"Output directory: {output_dir}")
-    print(f"Rats discovered: {len(rat_dirs)}")
+    print(f"Rats selected: {len(rat_dirs)}")
     outputs = []
     for rat_dir in rat_dirs:
         outputs.append(format_rat(rat_dir, output_dir))
