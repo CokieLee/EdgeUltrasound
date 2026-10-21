@@ -1,0 +1,478 @@
+{
+  "standard_deviation": "Sample standard deviation across result files (ddof=1)",
+  "repetitions": "Files may repeat the same trained model; not independent seeds",
+  "firing_rates": "Logged lif1/2/3_rate_pct values, in percent",
+  "validation_metric": "Final-epoch validation MSE in logged target units",
+  "groups": [
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "steps": 1,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "metrics": {
+        "best_val_mse": {
+          "mean": 0.001124176074378056,
+          "stdev": 6.0617005170283587e-05,
+          "n": 5
+        },
+        "final_val_mse": {
+          "mean": 0.0014072398048358536,
+          "stdev": 0.00021885444098736188,
+          "n": 5
+        },
+        "training_seconds": {
+          "mean": 65.62643082600016,
+          "stdev": 0.7995936493063788,
+          "n": 5
+        },
+        "spike_eval_seconds": {
+          "mean": 1.2818019520000234,
+          "stdev": 0.027634082024801866,
+          "n": 5
+        },
+        "total_spikes": {
+          "mean": 243007.8,
+          "stdev": 438499.19137804577,
+          "n": 5
+        },
+        "spikes_per_frame": {
+          "mean": 6075.195,
+          "stdev": 10962.479784451143,
+          "n": 5
+        },
+        "spikes_per_second": {
+          "mean": 188844.33159208638,
+          "stdev": 340306.4221880621,
+          "n": 5
+        },
+        "lif1_spikes": {
+          "mean": 45217.4,
+          "stdev": 85615.46514970294,
+          "n": 5
+        },
+        "lif2_spikes": {
+          "mean": 126293.6,
+          "stdev": 242089.24122480123,
+          "n": 5
+        },
+        "lif3_spikes": {
+          "mean": 71496.8,
+          "stdev": 110794.48500354157,
+          "n": 5
+        },
+        "lif1_rate_pct": {
+          "mean": 0.7076541215945513,
+          "stdev": 1.339885459699628,
+          "n": 5
+        },
+        "lif2_rate_pct": {
+          "mean": 3.952999799679487,
+          "stdev": 7.5774126485126585,
+          "n": 5
+        },
+        "lif3_rate_pct": {
+          "mean": 8.951422275641026,
+          "stdev": 13.871505033496293,
+          "n": 5
+        }
+      },
+      "source_files": [
+        "45015674-0ceb-42cd-8bf1-c5bbc41f6211.json",
+        "77298dfb-0dc5-41fd-84b4-05653edd26a3.json",
+        "913322d8-6b77-4e3c-a11b-3b62e24e1ca1.json",
+        "96398f9d-d9ce-4f0e-acd8-03456eab94ed.json",
+        "d7f28fc0-44bb-4427-99d1-e3f4055596d1.json"
+      ]
+    },
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "steps": 2,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "metrics": {
+        "best_val_mse": {
+          "mean": 0.0010238249617032125,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "final_val_mse": {
+          "mean": 0.0010238249617032125,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "training_seconds": {
+          "mean": 65.71699741859993,
+          "stdev": 0.2930913711315786,
+          "n": 5
+        },
+        "spike_eval_seconds": {
+          "mean": 1.2902329359998475,
+          "stdev": 0.021730112335680823,
+          "n": 5
+        },
+        "total_spikes": {
+          "mean": 3700188,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_frame": {
+          "mean": 92504.7,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_second": {
+          "mean": 2868491.961856395,
+          "stdev": 48024.89288615037,
+          "n": 5
+        },
+        "lif1_spikes": {
+          "mean": 1404582,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_spikes": {
+          "mean": 1654977,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_spikes": {
+          "mean": 640629,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif1_rate_pct": {
+          "mean": 10.990882286658653,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_rate_pct": {
+          "mean": 25.90045635516827,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_rate_pct": {
+          "mean": 40.10347806490385,
+          "stdev": 0.0,
+          "n": 5
+        }
+      },
+      "source_files": [
+        "1e6435a8-c0e2-42f7-99c8-b792b39d099b.json",
+        "78b1b4df-0864-4eba-9848-dc981b1589d3.json",
+        "9c7d819c-c115-4331-b316-c90f3d0069d7.json",
+        "c99d76e8-484d-4b78-87e8-cd3212c33f68.json",
+        "fa6b30c3-b08d-40c1-8abe-979e70b90843.json"
+      ]
+    },
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "steps": 4,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "metrics": {
+        "best_val_mse": {
+          "mean": 0.0010298965498805046,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "final_val_mse": {
+          "mean": 0.0012701214363914914,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "training_seconds": {
+          "mean": 66.23771170299969,
+          "stdev": 0.17022115664740545,
+          "n": 5
+        },
+        "spike_eval_seconds": {
+          "mean": 1.3227216803999908,
+          "stdev": 0.03412437119648872,
+          "n": 5
+        },
+        "total_spikes": {
+          "mean": 9337031,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_frame": {
+          "mean": 233425.775,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_second": {
+          "mean": 7062606.93306162,
+          "stdev": 177026.39409455945,
+          "n": 5
+        },
+        "lif1_spikes": {
+          "mean": 3769403,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_spikes": {
+          "mean": 4173914,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_spikes": {
+          "mean": 1393714,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif1_rate_pct": {
+          "mean": 14.7478269919371,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_rate_pct": {
+          "mean": 32.660960662059296,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_rate_pct": {
+          "mean": 43.623359875801285,
+          "stdev": 0.0,
+          "n": 5
+        }
+      },
+      "source_files": [
+        "30b7d456-4552-4ae9-bcca-342d5693eb07.json",
+        "57cdef98-ec8a-45a9-8c19-ac1c89696390.json",
+        "67622bdc-8939-4ce0-83a1-5481b5352729.json",
+        "9e9e2e2e-9e84-457a-9370-1d94a5ce8201.json",
+        "ebc88f5a-9607-437d-8403-40ec9f93ad05.json"
+      ]
+    },
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "steps": 6,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "metrics": {
+        "best_val_mse": {
+          "mean": 0.0010744277805713408,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "final_val_mse": {
+          "mean": 0.0010775938730375855,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "training_seconds": {
+          "mean": 66.8808821804001,
+          "stdev": 0.2915114744599198,
+          "n": 5
+        },
+        "spike_eval_seconds": {
+          "mean": 1.3453215727999122,
+          "stdev": 0.02764301863486189,
+          "n": 5
+        },
+        "total_spikes": {
+          "mean": 14869649,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_frame": {
+          "mean": 371741.225,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_second": {
+          "mean": 11056536.486856427,
+          "stdev": 223765.90693274763,
+          "n": 5
+        },
+        "lif1_spikes": {
+          "mean": 6578792,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_spikes": {
+          "mean": 6335232,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_spikes": {
+          "mean": 1955625,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif1_rate_pct": {
+          "mean": 17.15972639556624,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_rate_pct": {
+          "mean": 33.048878205128204,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_rate_pct": {
+          "mean": 40.80747946714744,
+          "stdev": 0.0,
+          "n": 5
+        }
+      },
+      "source_files": [
+        "0fb91691-15ff-4c98-b933-c35a79d54b23.json",
+        "4aff869b-1da7-42e6-9833-98c4c9ddf4dd.json",
+        "6d17d7bf-09ce-44f8-8804-9258a566ccc6.json",
+        "748bf293-6a7e-4834-925a-d0a4c1c48a26.json",
+        "c4381045-b2fc-4393-a173-1d88754dbaac.json"
+      ]
+    },
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "steps": 8,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "metrics": {
+        "best_val_mse": {
+          "mean": 0.0010318890208509401,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "final_val_mse": {
+          "mean": 0.001305706747189106,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "training_seconds": {
+          "mean": 67.35481433299974,
+          "stdev": 0.13745967353084532,
+          "n": 5
+        },
+        "spike_eval_seconds": {
+          "mean": 1.3738491240001167,
+          "stdev": 0.014669187790259214,
+          "n": 5
+        },
+        "total_spikes": {
+          "mean": 20268918,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_frame": {
+          "mean": 506722.95,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "spikes_per_second": {
+          "mean": 14754726.156172307,
+          "stdev": 157612.61526700165,
+          "n": 5
+        },
+        "lif1_spikes": {
+          "mean": 9005519,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_spikes": {
+          "mean": 8522564,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_spikes": {
+          "mean": 2740835,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif1_rate_pct": {
+          "mean": 17.617091643504608,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif2_rate_pct": {
+          "mean": 33.34461701221955,
+          "stdev": 0.0,
+          "n": 5
+        },
+        "lif3_rate_pct": {
+          "mean": 42.89417755909455,
+          "stdev": 0.0,
+          "n": 5
+        }
+      },
+      "source_files": [
+        "170b0e75-e333-4a13-96ef-acbaf7a3fbe5.json",
+        "42311e3f-7566-4de3-8bb8-42fe219c9ce6.json",
+        "9a6e7931-e20b-4626-9459-78a74b122c64.json",
+        "a43ccc8d-1547-4350-90a9-5c15281a2460.json",
+        "be456d5c-c146-4d1f-91fc-3c850910a460.json"
+      ]
+    }
+  ]
+}

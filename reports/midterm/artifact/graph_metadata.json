@@ -1,0 +1,220 @@
+{
+  "spike_benchmarks": [
+    {
+      "configuration": {
+        "device": "cuda",
+        "device_name": "A100",
+        "epochs": 10,
+        "experiment": "SNN steps experiment v1",
+        "frames_evaluated": 40,
+        "init_params": {
+          "spiking": true,
+          "threshold": 0.1
+        },
+        "learning_rate": 0.0001,
+        "model": "SNN",
+        "parameter_count": 66289,
+        "train_batch_size": 8,
+        "val_batch_size": 4,
+        "weight_decay": 0.001
+      },
+      "statistics": [
+        {
+          "steps": 1,
+          "mean": 243007.8,
+          "stdev": 438499.19137804577,
+          "files": 5,
+          "source_files": [
+            "45015674-0ceb-42cd-8bf1-c5bbc41f6211.json",
+            "77298dfb-0dc5-41fd-84b4-05653edd26a3.json",
+            "913322d8-6b77-4e3c-a11b-3b62e24e1ca1.json",
+            "96398f9d-d9ce-4f0e-acd8-03456eab94ed.json",
+            "d7f28fc0-44bb-4427-99d1-e3f4055596d1.json"
+          ]
+        },
+        {
+          "steps": 2,
+          "mean": 3700188,
+          "stdev": 0.0,
+          "files": 5,
+          "source_files": [
+            "1e6435a8-c0e2-42f7-99c8-b792b39d099b.json",
+            "78b1b4df-0864-4eba-9848-dc981b1589d3.json",
+            "9c7d819c-c115-4331-b316-c90f3d0069d7.json",
+            "c99d76e8-484d-4b78-87e8-cd3212c33f68.json",
+            "fa6b30c3-b08d-40c1-8abe-979e70b90843.json"
+          ]
+        },
+        {
+          "steps": 4,
+          "mean": 9337031,
+          "stdev": 0.0,
+          "files": 5,
+          "source_files": [
+            "30b7d456-4552-4ae9-bcca-342d5693eb07.json",
+            "57cdef98-ec8a-45a9-8c19-ac1c89696390.json",
+            "67622bdc-8939-4ce0-83a1-5481b5352729.json",
+            "9e9e2e2e-9e84-457a-9370-1d94a5ce8201.json",
+            "ebc88f5a-9607-437d-8403-40ec9f93ad05.json"
+          ]
+        },
+        {
+          "steps": 6,
+          "mean": 14869649,
+          "stdev": 0.0,
+          "files": 5,
+          "source_files": [
+            "0fb91691-15ff-4c98-b933-c35a79d54b23.json",
+            "4aff869b-1da7-42e6-9833-98c4c9ddf4dd.json",
+            "6d17d7bf-09ce-44f8-8804-9258a566ccc6.json",
+            "748bf293-6a7e-4834-925a-d0a4c1c48a26.json",
+            "c4381045-b2fc-4393-a173-1d88754dbaac.json"
+          ]
+        },
+        {
+          "steps": 8,
+          "mean": 20268918,
+          "stdev": 0.0,
+          "files": 5,
+          "source_files": [
+            "170b0e75-e333-4a13-96ef-acbaf7a3fbe5.json",
+            "42311e3f-7566-4de3-8bb8-42fe219c9ce6.json",
+            "9a6e7931-e20b-4626-9459-78a74b122c64.json",
+            "a43ccc8d-1547-4350-90a9-5c15281a2460.json",
+            "be456d5c-c146-4d1f-91fc-3c850910a460.json"
+          ]
+        }
+      ]
+    }
+  ],
+  "font": "C:\\Users\\homer\\AppData\\Local\\Microsoft\\Windows\\Fonts\\HelveticaNeueLight.otf",
+  "validation_rat_ids": [
+    6,
+    10,
+    15,
+    18
+  ],
+  "linear_regression_fraction_mse": 0.00216126384401723,
+  "network_target_scale": "Assumed fat fraction; not recorded in logs",
+  "band": "mean +/- sample standard deviation (ddof=1), lower bound clipped at zero",
+  "cohorts": {
+    "CNN": {
+      "count": 17,
+      "epochs": 25,
+      "source_files": [
+        "0b320351-b7d0-44ad-8552-87284e091fcd.json",
+        "134d7f24-a8f6-4201-b9cb-8cb3a91e4e68.json",
+        "16f96bd8-955c-4410-bd40-ee865035f9da.json",
+        "22d9c71e-fa6b-4ca6-a4a5-1ced5a110bde.json",
+        "2bea1edc-d89f-485d-9b19-f4983c674b0b.json",
+        "566ed312-aa12-481a-9a48-e45df1217d98.json",
+        "78d0d972-0301-4d96-8d47-999275c48ce6.json",
+        "9578e8b1-c269-4f91-a45e-4088a7b04ae9.json",
+        "9d2cf7bf-d664-455d-92a2-41d4c84ae3e6.json",
+        "ac5f99ed-3221-4bc4-a55c-efe4a7cddbc9.json",
+        "bae87f7b-e375-483f-a68a-321ca87959a3.json",
+        "bc6c8cba-d7f2-4fe1-a569-32ec9db0ca18.json",
+        "c6d990b1-50c0-439a-8df7-b175eee322f5.json",
+        "d8e70d0d-8158-45b3-9461-96f39ca39abd.json",
+        "e46854d5-b234-40f1-a5b7-85e4228710e6.json",
+        "e4cfdb54-b493-4f64-a3c4-945caa379654.json",
+        "e7ce5e24-b56b-4303-93e9-472c0ed9b0b4.json"
+      ]
+    },
+    "SNN": {
+      "count": 12,
+      "epochs": 75,
+      "source_files": [
+        "47bae695-8d06-455e-b8fb-d9ce638d2633.json",
+        "4a6f060b-53e2-4d53-af42-a659bee39169.json",
+        "70f95559-0739-455c-959c-a9be5272e7e4.json",
+        "7638d2ce-1e10-4154-8927-44640e5882af.json",
+        "81b41f77-0eb6-4367-be11-5fd4371d9752.json",
+        "9cf597ee-e9b0-407f-992d-4e8292ff30c4.json",
+        "b233d751-5bdd-4937-b2eb-044602e4a4a5.json",
+        "ba3eef4f-db2b-40e5-90a5-a5e10f324276.json",
+        "d0f3a39d-f35d-4e21-8e3b-cdee784ca410.json",
+        "d18ebb37-510c-443e-b615-551c22bd41ca.json",
+        "e24cc8e6-a79c-449e-bbf7-4024b57e03ea.json",
+        "fc5f3b62-e08f-414c-9389-e3d7ac14475c.json"
+      ]
+    }
+  },
+  "learning_rate_cohorts": {
+    "CNN": {
+      "1e-05": {
+        "count": 5,
+        "epochs": 25,
+        "source_files": [
+          "134d7f24-a8f6-4201-b9cb-8cb3a91e4e68.json",
+          "9578e8b1-c269-4f91-a45e-4088a7b04ae9.json",
+          "bae87f7b-e375-483f-a68a-321ca87959a3.json",
+          "d8e70d0d-8158-45b3-9461-96f39ca39abd.json",
+          "e4cfdb54-b493-4f64-a3c4-945caa379654.json"
+        ]
+      },
+      "0.0001": {
+        "count": 6,
+        "epochs": 25,
+        "source_files": [
+          "2bea1edc-d89f-485d-9b19-f4983c674b0b.json",
+          "566ed312-aa12-481a-9a48-e45df1217d98.json",
+          "ac5f99ed-3221-4bc4-a55c-efe4a7cddbc9.json",
+          "bc6c8cba-d7f2-4fe1-a569-32ec9db0ca18.json",
+          "c6d990b1-50c0-439a-8df7-b175eee322f5.json",
+          "e7ce5e24-b56b-4303-93e9-472c0ed9b0b4.json"
+        ]
+      },
+      "0.001": {
+        "count": 6,
+        "epochs": 25,
+        "source_files": [
+          "0b320351-b7d0-44ad-8552-87284e091fcd.json",
+          "16f96bd8-955c-4410-bd40-ee865035f9da.json",
+          "22d9c71e-fa6b-4ca6-a4a5-1ced5a110bde.json",
+          "78d0d972-0301-4d96-8d47-999275c48ce6.json",
+          "9d2cf7bf-d664-455d-92a2-41d4c84ae3e6.json",
+          "e46854d5-b234-40f1-a5b7-85e4228710e6.json"
+        ]
+      }
+    },
+    "SNN": {
+      "0.0001": {
+        "count": 3,
+        "epochs": 75,
+        "source_files": [
+          "4a6f060b-53e2-4d53-af42-a659bee39169.json",
+          "7638d2ce-1e10-4154-8927-44640e5882af.json",
+          "d0f3a39d-f35d-4e21-8e3b-cdee784ca410.json"
+        ]
+      },
+      "0.001": {
+        "count": 3,
+        "epochs": 75,
+        "source_files": [
+          "ba3eef4f-db2b-40e5-90a5-a5e10f324276.json",
+          "d18ebb37-510c-443e-b615-551c22bd41ca.json",
+          "e24cc8e6-a79c-449e-bbf7-4024b57e03ea.json"
+        ]
+      },
+      "0.01": {
+        "count": 3,
+        "epochs": 75,
+        "source_files": [
+          "47bae695-8d06-455e-b8fb-d9ce638d2633.json",
+          "70f95559-0739-455c-959c-a9be5272e7e4.json",
+          "fc5f3b62-e08f-414c-9389-e3d7ac14475c.json"
+        ]
+      },
+      "0.1": {
+        "count": 3,
+        "epochs": 75,
+        "source_files": [
+          "81b41f77-0eb6-4367-be11-5fd4371d9752.json",
+          "9cf597ee-e9b0-407f-992d-4e8292ff30c4.json",
+          "b233d751-5bdd-4937-b2eb-044602e4a4a5.json"
+        ]
+      }
+    }
+  }
+}

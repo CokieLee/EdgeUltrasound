@@ -9,6 +9,9 @@ authors = [
 requires-python = ">=3.14"
 dependencies = []
 
+[project.optional-dependencies]
+reports = ["matplotlib>=3.10"]
+
 [project.scripts]
 edgeultrasound = "edgeultrasound:main"
 
