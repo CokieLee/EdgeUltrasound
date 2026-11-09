@@ -31,7 +31,7 @@ Keep generated netlists, logs, FASM and bitstreams out of Git unless the team in
 
 Synthesis maps the RTL to FPGA resources. Placement and routing selects physical sites and wires while applying pin and timing constraints. FASM describes configuration features; fpga-as converts those features into the binary bitstream.
 
-## Example source: top.v
+## Example source: top.v 
 
 ```verilog
 module top (
@@ -47,6 +47,26 @@ module top (
             led   <= 1'b0;
         end else begin
             count <= count + 1'b1;
+            led   <= count[23];
+        end
+    end
+endmodule
+```
+
+``` systemverilog
+module top (
+    input  logic clk,
+    input  logic rst,
+    output logic led
+);
+    logic [23:0] count;
+
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            count <= 24'd0;
+            led   <= 1'b0;
+        end else begin
+            count <= count + 24'd1;
             led   <= count[23];
         end
     end
@@ -111,6 +131,12 @@ For a repository checkout, use the corresponding `src/examples/cmod_s7_blink` di
 ```bash
 yosys -l synth.log -p \
   'read_verilog top.v; synth_xilinx -family xc7 -top top; check; write_json top.json'
+```
+
+alternatively for the system verilog script you can do:
+```bash
+yosys -l synth.log -p \
+  'read_verilog -sv top.sv; synth_xilinx -family xc7 -top top; check; write_json top.json'
 ```
 
 Validate that Yosys finishes without errors, writes `top.json`, and reports zero problems in its CHECK pass.
