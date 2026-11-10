@@ -25,16 +25,40 @@ where:
 
 That is a lot of data... but lets not worry about it right now. Right now lets focus on the network because its likely the network is too massive for our FPGA. Lets see! For each layer I 
 
-
 | Operation | Output shape, excluding batch | What changes |
 |---|---|---|
-| Input | `384 × 64 × 312` | 384 input channels |
-| `stem`: 1×1 convolution | `16 × 64 × 312` | Compresses 384 channels into 16 |
-| `conv1` → `act1` | `32 × 32 × 156` | Doubles channels; halves both spatial dimensions |
-| `conv2` → `act2` | `64 × 16 × 78` | Doubles channels; halves both spatial dimensions |
-| `conv3` → `act3` | `64 × 8 × 39` | Keeps 64 channels; halves both spatial dimensions |
+| Input | `384 × 64 × 312` | 384 input recieve events |
+| `stem`: 1×1 convolution | `16 × 64 × 312` | Compresses 384 recieve events into 16 |
+| `conv1` + `act1` | `32 × 32 × 156` | Doubles channels; halves both spatial dimensions |
+| `conv2` + `act2` | `64 × 16 × 78` | Doubles channels; halves both spatial dimensions |
+| `conv3` + `act3` | `64 × 8 × 39` | Keeps 64 channels; halves both spatial dimensions |
 | Average pooling | `64 × 1 × 1` | Averages each channel’s spatial positions |
 | Linear head | `1` | Combines the 64 averages into one scalar |
+
+
+If our input is a [384, 64, 312] ([recieve events, channels, samples]), then:
+1. The stem layer uses learned weights to produce 16 new "receive events" from the input 384 channels. This is effectively a massive matrix multiplication step. (in more detail, we can think of each recieve event as an "image" of [channels, samples] and we are applying a unique weight to each image, then summing all 384 images and adding a bias, yielding 1 new output channel. We repeat this with 16 sets of weights to get 16 new feature mapped "events").
+2. Each of the three main stages is a convolution followed by an activation. In the CNN, we use RELU (y=max(0,x)), while in the SNN we use neurons, which will take in the convolution result and output binary spikes.
+3. Average pooling averages 312 inputs into 64??
+4. The final linear head involves a matrix multiplication and weight addition.
+5. The SNN was trained with 4 steps. That means for each input, we present it to the LIF layers 4 times and then average per step outputs into one final output. 
+
+
+At a high level, we have 3 kinds of computation:
+1. Matrix Multiplication (CNNs)
+2. Averaging
+3. LIF Neuron processing
+
+However, its layer specific:
+1. Numeric matrix multiplicaton (stem, conv1)
+2. Spike weighted accumulation (matrix * spike (0,1) -> less like MatMul more like conditionals)
+3. LIF Neuron processing (layers following the Convolution Layers - act1,act2,act3)
+4. Averaging (average pooling)
+
+So likely we want reusable hardware consisting of an accumulation engine, a LIF update unit, memory, and a scheduler/address generator. Those are conceptual blocks; they needn’t each have separate arithmetic. The important next distinction is what must remain stored versus what can be computed, consumed, and overwritten.
+
+
+
 
 Consider one neuron, with illustrative values:
 - Input current: \(I=0.4\), constant across the four steps.
@@ -50,4 +74,5 @@ $s_t=
 0 & \text{otherwise}
 \end{cases}
 $
+
 

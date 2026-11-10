@@ -1,0 +1,157 @@
+
+import torch
+import torch.nn as nn
+import snntorch as snn
+from snntorch import surrogate
+
+
+class RatClassifier(nn.Module):
+    def __init__(
+        self,
+        in_channels=384,
+        spiking=False,
+        steps=4,
+        threshold=1.0,
+        downsize_factor: int = 1,
+        channel_reduction: int = 1
+    ):
+        super().__init__()
+
+        self.spiking = spiking
+        self.steps = steps
+        self.channel_reduction = channel_reduction
+
+        # Pre-downsampled, normalized RF frames
+        self.downsample = nn.Identity()
+
+        mc1 = 16 // downsize_factor
+        mc2 = 32 // downsize_factor
+        mc3 = 64 // downsize_factor
+
+        mc0 = in_channels if channel_reduction == -1 else min(in_channels, channel_reduction)
+
+        self.stem = nn.Conv2d(
+            mc0, mc1, kernel_size=1
+        )
+
+        self.conv1 = nn.Conv2d(
+            mc1, mc2, 3, stride=2, padding=1
+        )
+        self.conv2 = nn.Conv2d(
+            mc2, mc3, 3, stride=2, padding=1
+        )
+        self.conv3 = nn.Conv2d(
+            mc3, mc3, 3, stride=2, padding=1
+        )
+
+        self.pool = nn.AdaptiveAvgPool2d(1)
+        self.head = nn.Linear(mc3, 1)
+
+        # Spike recording disabled during training
+        self.record_spikes = False
+        self.last_spike_counts = None
+        self.last_spike_elements = None
+
+        if spiking:
+            spike_grad = surrogate.fast_sigmoid()
+
+            self.act1 = snn.Leaky(
+                beta=0.9, threshold=threshold, spike_grad=spike_grad
+            )
+            self.act2 = snn.Leaky(
+                beta=0.9, threshold=threshold, spike_grad=spike_grad
+            )
+            self.act3 = snn.Leaky(
+                beta=0.9, threshold=threshold, spike_grad=spike_grad
+            )
+        else:
+            self.act1 = nn.ReLU()
+            self.act2 = nn.ReLU()
+            self.act3 = nn.ReLU()
+
+    def forward(self, x):
+        # print(f'Shape: {x.shape}')
+        if self.channel_reduction != -1:
+          # print("channy")
+          x = x[:, :self.channel_reduction, :]
+        # print(f'Post Shape: {x.shape}')
+
+        z = self.stem(self.downsample(x))
+
+        if not self.spiking:
+            z = self.act1(self.conv1(z))
+            z = self.act2(self.conv2(z))
+            z = self.act3(self.conv3(z))
+
+            return self.head(
+                self.pool(z).flatten(1)
+            )
+
+        # Membrane states reset every batch
+        mem1 = self.act1.init_leaky()
+        mem2 = self.act2.init_leaky()
+        mem3 = self.act3.init_leaky()
+
+        # First convolution uses static input
+        current1 = self.conv1(z)
+
+        logits_sum = 0
+
+        if self.record_spikes:
+            counts = [
+                torch.zeros((), device=x.device)
+                for _ in range(3)
+            ]
+            elements = [0, 0, 0]
+
+        for t in range(self.steps):
+            spk1, mem1 = self.act1(
+                current1, mem1
+            )
+
+            spk2, mem2 = self.act2(
+                self.conv2(spk1), mem2
+            )
+
+            spk3, mem3 = self.act3(
+                self.conv3(spk2), mem3
+            )
+
+            if self.record_spikes:
+                for i, spk in enumerate(
+                    (spk1, spk2, spk3)
+                ):
+                    counts[i] = (
+                        counts[i] + spk.detach().sum()
+                    )
+                    elements[i] += spk.numel()
+
+            logits_sum = logits_sum + self.head(
+                self.pool(spk3).flatten(1)
+            )
+
+        if self.record_spikes:
+            self.last_spike_counts = torch.stack(
+                counts
+            )
+            self.last_spike_elements = elements
+
+        return logits_sum / self.steps
+
+import torch.nn as nn
+
+model = RatClassifier(
+    in_channels=x_sample.shape[1],
+    spiking=True,
+    downsize_factor=2
+).cuda()
+
+sample = x_sample
+print(f'Model parameters: {count_params(model):,}')
+print(f'Sample Shape: {sample.shape}')
+print(f'Output Shape: {model(apply_preprocessing(x_sample).cuda()).shape}')
+del sample
+del model
+gc.collect()
+
+

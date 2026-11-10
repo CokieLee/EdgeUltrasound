@@ -1,0 +1,45 @@
+# Plan A: The Nordic PPK2 (The Clean, Automated Path)
+
+* **What it is:** Using the PPK2 as an auto-ranging source meter for both the ESP32-S3 and the Cmod S7.
+
+* **How it works for your write-up:**
+
+  * **ESP32-S3:** Supplying 3.3V directly to the `3V3` pin (USB disconnected).
+
+  * **Cmod S7:** Supplying 5.0V directly to the `VU` pin (USB disconnected).
+
+* **Why it’s Plan A:** It handles the wide dynamic current range natively (from micro-amp baseline states to active milli-amp spikes) without requiring you to manually build amplifiers or calculate analog gain curves.
+
+### Plan B: Oscilloscope + Shunt Resistor + High-Speed Op-Amp (The Analog Fallback)
+
+* **What it is:** If you can't secure a PPK2 in time, you fall back to a precision low-side shunt resistor ($0.1\,\Omega$ to $1\,\Omega$) paired with an oscilloscope channel.
+
+* **The Catch (Why you noted an amplifier):** As you correctly identified, microcontrollers and FPGAs experience massive dynamic range jumps. If your shunt is small enough to avoid starving the device during peak active draws, the voltage drop during low-power/sleep states will shrink into the noise floor of a standard oscilloscope.
+
+* **The Fix:** If you must use Plan B, route the shunt's voltage drop through a dedicated low-side current-sense amplifier (like an **INA180** or a fast operational amplifier configured for differential sensing) to scale the active vs. sleep states into readable oscilloscope ranges.
+
+### Plan C / Stretch Goal: Vivado Power Estimation (The Theoretical Baseline)
+
+* **What it is:** Running the `Report Power` utility inside Xilinx Vivado for the Cmod S7.
+
+* **How it works for your write-up:** Even if hardware measurements on Plan A/B give you your headline empirical figures, running Vivado’s power report allows you to break down *where* the power is going inside the Spartan-7 silicon itself (e.g., how many milliwatts your 30 KB BRAM footprint consumes versus the logic clock routing).**How it works:**
+
+  * **ESP32-S3:** Supplying $3.3\text{ V}$ directly to the `3V3` header pin with the USB cable disconnected to prevent parasitic powering of the onboard USB-to-UART bridge.
+
+  * **Cmod S7:** Supplying $5.0\text{ V}$ directly to the `VU` pin with the USB cable disconnected to bypass host computer power noise.
+
+* **Why it is Plan A:** The PPK2 natively handles a wide dynamic current range (from micro-amp baseline states up to active milli-amp spikes) at high sample rates ($100\text{ kS/s}$) without requiring manual gain amplification or complex analog calibration curves.
+
+## Plan B: Oscilloscope + Shunt Resistor + High-Speed Op-Amp (The Analog Fallback)
+
+* **What it is:** If the PPK2 cannot be secured in time, measurements fall back to a precision low-side shunt resistor ($0.1\,\Omega\text{ to }1.0\,\Omega$, 1% tolerance) paired with an oscilloscope channel.
+
+* **The Challenge:** Microcontrollers and FPGAs exhibit massive dynamic current range jumps. If the shunt resistor is small enough to prevent brownouts during peak active states, the voltage drop during low-power/sleep states drops into the oscilloscope’s noise floor.
+
+* **The Fix:** Route the voltage drop across the shunt through a dedicated low-side current-sense amplifier (e.g., INA180 or a fast operational amplifier configured for differential sensing) to scale active versus idle state signals into readable oscilloscope voltage ranges.
+
+## Plan C / Stretch Goal: Vivado Power Estimation (The Theoretical Baseline)
+
+* **What it is:** Running the `Report Power` utility inside AMD Xilinx Vivado for the Cmod S7 bitstream implementation.
+
+* **How it works:** While physical hardware measurements (Plans A/B) provide headline empirical energy figures, Vivado’s power analysis tool isolates the internal Spartan-7 silicon power profile. This breakdown distinguishes dynamic energy consumed by the 30 KB Block RAM footprint from that used by logic clock routing and LUT switching fabric.
