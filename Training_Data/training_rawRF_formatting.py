@@ -20,18 +20,22 @@ from collections import Counter
 from pathlib import Path
 
 import h5py
+import matplotlib.pyplot as plt
 import numpy as np
 
 
 SCRIPT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT_ROOT = SCRIPT_ROOT / "Stanford_Murine_RawRFData"
 DEFAULT_OUTPUT_DIR = SCRIPT_ROOT / "Stanford_Murine_RawRFData_TrainingFormatted"
+DEFAULT_PLOT_DIR = SCRIPT_ROOT / "Stanford_Murine_RawRFData_Photos"
 
 # Set to 1 to skip valid outputs that already exist; set to 0 to regenerate all rats.
-SKIP_EXISTING_RATS = 1
+SKIP_EXISTING_RATS = 0
 INITIAL_SAMPLES_TO_REMOVE = 64
+RANDOM_TRACE_COUNT = 16
+TOTAL_SAMPLES_TO_KEEP = 1000
 # Set to None to process all discovered rats, or use a list such as [1, 4].
-RATS_TO_PROCESS = [6]
+RATS_TO_PROCESS = None
 
 if str(SCRIPT_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPT_ROOT))
@@ -39,6 +43,7 @@ if str(SCRIPT_ROOT) not in sys.path:
 from FSA_view import (  # noqa: E402
     all_datasets,
     candidate_datasets,
+    decimation_factor,
     extract_frame,
     receive_event_descriptors,
     sampling_frequency_hz,
@@ -65,6 +70,18 @@ def dataset_for_file(h5_file):
     return candidates[0]
 
 
+def trim_frame_samples(frame_data):
+    required_sample_count = INITIAL_SAMPLES_TO_REMOVE + TOTAL_SAMPLES_TO_KEEP
+    if frame_data.shape[-1] < required_sample_count:
+        raise ValueError(
+            f"Frame sample count {frame_data.shape[-1]} is less than the "
+            f"required {required_sample_count} samples"
+        )
+    return frame_data[
+        ..., INITIAL_SAMPLES_TO_REMOVE:required_sample_count
+    ]
+
+
 def is_valid_formatted_output(output_path):
     if not output_path.exists():
         return False
@@ -84,11 +101,60 @@ def is_valid_formatted_output(output_path):
         return False
 
 
+def plot_random_receive_traces(
+    rf_data,
+    rat_name,
+    plot_path,
+    random_generator=None,
+):
+    frame_count, event_count, channel_count, sample_count = rf_data.shape
+    available_trace_count = frame_count * event_count
+    trace_count = min(RANDOM_TRACE_COUNT, available_trace_count)
+    if trace_count == 0 or channel_count == 0 or sample_count == 0:
+        print("  plot skipped: no RF traces available")
+        return
+
+    random_generator = random_generator or np.random.default_rng()
+    trace_indices = random_generator.choice(
+        available_trace_count,
+        size=trace_count,
+        replace=False,
+    )
+    sample_indices = np.arange(sample_count)
+
+    figure, axes = plt.subplots(4, 4, figsize=(16, 12), sharex=True)
+    axes = axes.ravel()
+    for subplot_index, trace_index in enumerate(trace_indices):
+        frame_index, event_index = divmod(int(trace_index), event_count)
+        channel_index = int(random_generator.integers(channel_count))
+        axis = axes[subplot_index]
+        axis.plot(
+            sample_indices,
+            rf_data[frame_index, event_index, channel_index],
+            linewidth=0.8,
+        )
+        axis.set_title(
+            f"frame {frame_index}, event {event_index}, channel {channel_index}",
+            fontsize=8,
+        )
+        axis.grid(True, alpha=0.25)
+
+    figure.suptitle(f"Random RF traces: {rat_name}")
+    figure.supxlabel("Sample index")
+    figure.supylabel("Raw RF amplitude")
+    figure.tight_layout()
+    plot_path.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(plot_path, dpi=150)
+    plt.close(figure)
+    print(f"  trace plot: {plot_path}")
+
+
 def save_formatted_rat(
     output_path,
     rf_data,
     frame_events_by_frame,
     sampling_frequency,
+    decimation_factor_value,
     initial_samples_removed,
 ):
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -113,6 +179,14 @@ def save_formatted_rat(
         [[event["frame_index"] for event in frame_events] for frame_events in frame_events_by_frame],
         dtype=np.int64,
     )
+    start_depths = np.array(
+        [[event["start_depth"] for event in frame_events] for frame_events in frame_events_by_frame],
+        dtype=np.float64,
+    )
+    end_depths = np.array(
+        [[event["end_depth"] for event in frame_events] for frame_events in frame_events_by_frame],
+        dtype=np.float64,
+    )
 
     try:
         with h5py.File(temporary_output_path, mode="w") as archive:
@@ -131,6 +205,8 @@ def save_formatted_rat(
             archive.create_dataset("start_samples", data=start_samples)
             archive.create_dataset("end_samples", data=end_samples)
             archive.create_dataset("frame_indices", data=frame_indices)
+            archive.create_dataset("start_depths", data=start_depths)
+            archive.create_dataset("end_depths", data=end_depths)
             archive.create_dataset("frame_count", data=np.array(frame_count, dtype=np.int64))
             archive.create_dataset("event_count", data=np.array(event_count, dtype=np.int64))
             archive.create_dataset("channel_count", data=np.array(channel_count, dtype=np.int64))
@@ -142,6 +218,14 @@ def save_formatted_rat(
             archive.create_dataset(
                 "sampling_frequency_hz",
                 data=np.array(sampling_frequency if sampling_frequency is not None else np.nan),
+            )
+            archive.create_dataset(
+                "decim_factor",
+                data=np.array(
+                    decimation_factor_value
+                    if decimation_factor_value is not None
+                    else np.nan
+                ),
             )
             archive.attrs["format"] = "Verasonics FSA training RF"
             archive.attrs["tensor_order"] = "frames,events,channels,samples"
@@ -177,18 +261,26 @@ def format_rat(rat_dir, output_dir):
         if not receive_events:
             raise RuntimeError("No valid Receive events found.")
         sampling_frequency = sampling_frequency_hz(h5_file)
+        receive_decimation_factor = decimation_factor(h5_file)
+        depth_mismatches = [
+            event
+            for event in receive_events
+            if not np.isclose(event["start_depth"], 2.0)
+        ]
+        if depth_mismatches:
+            print("  startDepth values other than 2.0:")
+            for event in depth_mismatches:
+                print(
+                    f"    Receive index {event['receive_index']}: "
+                    f"{event['start_depth']}"
+                )
         frame_indices = sorted({event["frame_index"] for event in receive_events})
         first_frame_data, first_frame_events = extract_frame(
             rf_dataset,
             receive_events,
             frame_index=frame_indices[0],
         )
-        if first_frame_data.shape[-1] <= INITIAL_SAMPLES_TO_REMOVE:
-            raise ValueError(
-                f"Frame sample count {first_frame_data.shape[-1]} is not larger than "
-                f"INITIAL_SAMPLES_TO_REMOVE={INITIAL_SAMPLES_TO_REMOVE}"
-            )
-        first_frame_data = first_frame_data[..., INITIAL_SAMPLES_TO_REMOVE:]
+        first_frame_data = trim_frame_samples(first_frame_data)
         frame_shape = first_frame_data.shape
         full_shape = (len(frame_indices),) + frame_shape
         frame_events_by_frame = [first_frame_events]
@@ -208,7 +300,7 @@ def format_rat(rat_dir, output_dir):
                     receive_events,
                     frame_index=frame_index,
                 )
-                frame_data = frame_data[..., INITIAL_SAMPLES_TO_REMOVE:]
+                frame_data = trim_frame_samples(frame_data)
                 if current_events and frame_data.shape != frame_shape:
                     raise ValueError(
                         f"Frame {frame_index} shape {frame_data.shape} differs from {frame_shape}"
@@ -221,11 +313,17 @@ def format_rat(rat_dir, output_dir):
                 rf_data[output_frame_index] = frame_data
                 frame_events_by_frame.append(current_events)
             rf_data.flush()
+            plot_random_receive_traces(
+                rf_data,
+                rat_dir.name,
+                DEFAULT_PLOT_DIR / f"{rat_dir.name}_random_traces.png",
+            )
             save_formatted_rat(
                 output_path,
                 rf_data,
                 frame_events_by_frame,
                 sampling_frequency,
+                receive_decimation_factor,
                 INITIAL_SAMPLES_TO_REMOVE,
             )
             del rf_data
