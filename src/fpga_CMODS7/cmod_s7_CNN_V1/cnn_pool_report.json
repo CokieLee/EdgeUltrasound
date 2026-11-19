@@ -1,0 +1,319 @@
+{
+  "port": "COM7",
+  "event": 0,
+  "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.4",
+  "config": {
+    "right_shifts": [
+      0,
+      2,
+      2,
+      2,
+      0
+    ],
+    "bias_left_shifts": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "description": "UNTRAINED synthetic smoke test; not a rat classifier"
+  },
+  "expected_score": -50,
+  "files_sha256": {
+    "demo\\demo_weights.npz": "8fd1e0dc23cb6ea65039b5d87269cd6f42ff1ea3eae03f2847b4cfc1559bc431",
+    "demo\\demo_config.json": "ba9ffecc1a63042ddd8fe86590da4764d3b21fd61888cae55526b3160e17a042",
+    "demo\\demo_input.npy": "969ad16381ce01657669d839f8afe208727c073b401a90ea2ff376d57c3dfeec",
+    "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\EdgeUltrasound\\src\\fpga_CMODS7\\cmod_s7_CNN_V1\\host\\debug_cnn.py": "84d5f4d50ddc3be9ca881bbcfeb1f0b196c40cb690476487b3787bc3bd2524dd",
+    "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\EdgeUltrasound\\src\\fpga_CMODS7\\cmod_s7_CNN_V1\\host\\cnn_reference.py": "c70bfeadc73ba040045667698ae8a2e4c3574e4bb15458dc2102b6b871179003",
+    "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\EdgeUltrasound\\src\\fpga_CMODS7\\cmod_s7_CNN_V1\\host\\run_cnn.py": "dc49ab4e95de877ccf0cd1320d07e28daf7fdbeabece395312b3af9e80de4845"
+  },
+  "tests": [
+    {
+      "name": "baseline",
+      "expected": -50,
+      "actual": -73,
+      "match": false,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.309
+    },
+    {
+      "name": "head_bias_123",
+      "expected": 123,
+      "actual": 123,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.293
+    },
+    {
+      "name": "head_bias_-123",
+      "expected": -123,
+      "actual": -123,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.324
+    },
+    {
+      "name": "constant_low_channel",
+      "expected": 64,
+      "actual": 64,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.307
+    },
+    {
+      "name": "constant_high_channels_bias_shift",
+      "expected": 64,
+      "actual": 64,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.309
+    },
+    {
+      "name": "signed_head_and_right_shifts",
+      "expected": -2,
+      "actual": -2,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.304
+    },
+    {
+      "name": "input_center_path",
+      "expected": 4,
+      "actual": 4,
+      "match": true,
+      "input_replay_match": true,
+      "elapsed_seconds": 5.305
+    }
+  ],
+  "completed": true,
+  "pool_probes": [
+    {
+      "channel": 0,
+      "expected": 94,
+      "actual": 78,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 1,
+      "expected": 173,
+      "actual": 151,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 2,
+      "expected": 64,
+      "actual": 55,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 3,
+      "expected": 111,
+      "actual": 89,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 4,
+      "expected": 47,
+      "actual": 44,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 5,
+      "expected": 112,
+      "actual": 93,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 6,
+      "expected": 155,
+      "actual": 126,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 7,
+      "expected": 32,
+      "actual": 19,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 8,
+      "expected": 23,
+      "actual": 19,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 9,
+      "expected": 148,
+      "actual": 129,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 10,
+      "expected": 296,
+      "actual": 264,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 11,
+      "expected": 201,
+      "actual": 179,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 12,
+      "expected": 126,
+      "actual": 107,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 13,
+      "expected": 527,
+      "actual": 475,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 14,
+      "expected": 331,
+      "actual": 273,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 15,
+      "expected": 153,
+      "actual": 124,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 16,
+      "expected": 97,
+      "actual": 87,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 17,
+      "expected": 302,
+      "actual": 254,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 18,
+      "expected": 66,
+      "actual": 60,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 19,
+      "expected": 141,
+      "actual": 109,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 20,
+      "expected": 84,
+      "actual": 77,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 21,
+      "expected": 80,
+      "actual": 77,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 22,
+      "expected": 150,
+      "actual": 134,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 23,
+      "expected": 147,
+      "actual": 134,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 24,
+      "expected": 215,
+      "actual": 183,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 25,
+      "expected": 90,
+      "actual": 61,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 26,
+      "expected": 268,
+      "actual": 227,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 27,
+      "expected": 438,
+      "actual": 403,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 28,
+      "expected": 136,
+      "actual": 114,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 29,
+      "expected": 52,
+      "actual": 33,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 30,
+      "expected": 74,
+      "actual": 62,
+      "match": false,
+      "input_replay_match": true
+    },
+    {
+      "channel": 31,
+      "expected": 275,
+      "actual": 230,
+      "match": false,
+      "input_replay_match": true
+    }
+  ],
+  "score_from_probed_pool": -73
+}
