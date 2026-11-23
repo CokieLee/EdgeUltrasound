@@ -1,0 +1,144 @@
+Info: Using uarch 'xilinx' for device 'xc7s25csga225-1'
+
+Info: Parsing XDC file...
+Info: Packing constants..
+Info: Inserting IO buffers..
+Info:     IO port 'uart_tx' driven by OBUF '$iopadmap$top.uart_tx'
+Info:     IO port 'uart_rx' driven by IBUF '$iopadmap$top.uart_rx'
+Info:     IO port 'rst_button' driven by IBUF '$iopadmap$top.rst_button'
+Info:     IO port 'led[3]' driven by OBUF '$iopadmap$top.led_3'
+Info:     IO port 'led[2]' driven by OBUF '$iopadmap$top.led_2'
+Info:     IO port 'led[1]' driven by OBUF '$iopadmap$top.led_1'
+Info:     IO port 'led[0]' driven by OBUF '$iopadmap$top.led'
+Info:     IO port 'clk' driven by IBUF '$iopadmap$top.clk'
+Info:     Constraining 'uart_tx' to pad 'X0Y65/IOB_X0Y0.IOB33S.PAD'
+Info:     Constraining 'uart_rx' to pad 'X0Y63/IOB_X0Y0.IOB33S.PAD'
+Info:     Constraining 'rst_button' to pad 'X101Y65/IOB_X0Y1.IOB33M.PAD'
+Info:     Constraining 'led[3]' to pad 'X101Y69/IOB_X0Y0.IOB33S.PAD'
+Info:     Constraining 'led[2]' to pad 'X101Y86/IOB_X0Y0.IOB33S.PAD'
+Info:     Constraining 'led[1]' to pad 'X101Y86/IOB_X0Y1.IOB33M.PAD'
+Info:     Constraining 'led[0]' to pad 'X101Y69/IOB_X0Y1.IOB33M.PAD'
+Info:     Constraining 'clk' to pad 'X0Y80/IOB_X0Y1.IOB33M.PAD'
+Info: Generating output buffer for '$iopadmap$top.uart_tx'
+Info: Generating input buffer for '$iopadmap$top.uart_rx'
+Info: Generating input buffer for '$iopadmap$top.rst_button'
+Info: Generating output buffer for '$iopadmap$top.led_3'
+Info: Generating output buffer for '$iopadmap$top.led_2'
+Info: Generating output buffer for '$iopadmap$top.led_1'
+Info: Generating output buffer for '$iopadmap$top.led'
+Info: Generating input buffer for '$iopadmap$top.clk'
+Info:     Created 8 PAD cells from:
+Info:              8x PAD
+Info: Preparing clocking...
+Info: Packing constants..
+Info: Packing IOLOGIC...
+Info: Packing cfg...
+Info: Packing PLLs...
+Info: Packing global buffers...
+Info:     Constrained BUFGCTRL '$auto$clkbufmap.cc:268:execute$399899' to bel 'X52Y56/BUFGCTRL_X0Y0.BUFGCTRL' based on dedicated routing
+Info: Packing Gigabit Transceivers..
+Info: Generating derived timing constraints...
+Warning: Clock net '$techmap396161$auto$ff.cc:337:slice$10503.C' has no timing constraint and will be timed at the default 12.00 MHz.
+Info: Packing MUX[789]s..
+Info: Packing carries..
+Info:    Grouped 2036 MUXCYs and 2036 XORCYs into 91 chains.
+Info:    Moved 178 shared LUTs driving carry S inputs into the carry site.
+Info:    Duplicated 942 shared LUTs driving carry S inputs.
+Info:    Blasted 0 non-chain MUXCYs and 41 non-chain XORCYs to soft logic
+Info: Packing LUTs..
+Info:     Created 5923 SLICE_LUTX cells from:
+Info:           2525x LUT1
+Info:            737x LUT2
+Info:           1561x LUT3
+Info:            165x LUT4
+Info:            375x LUT5
+Info:            560x LUT6
+Info: Packing DRAM..
+Info:    Transformed 0 tied-low DRAM address inputs to be tied-high
+Info: Packing BRAM..
+Info: BRAM cascade scan: 50 BRAM(s), 0 tie(s) seen, 0 dropped
+Info: Packing DSPs..
+Info:     Created 23 DSP48E1_DSP48E1 cells from:
+Info:             23x DSP48E1
+Info: Found 12 cascaded DSP from 11 roots
+Info: Packing flipflops..
+Info:     Created 1251 SLICE_FFX cells from:
+Info:            710x FDCE
+Info:             18x FDPE
+Info:            523x FDRE
+Info: Constrained 644 LUTFF pairs.
+Info: Checksum: 0x43a9422b
+
+Info: Device utilisation:
+Info: 	          SLICE_LUTX:    5923/  29200    20%
+Info: 	           SLICE_FFX:    1251/  29200     4%
+Info: 	              CARRY4:     518/   3650    14%
+Info: 	          PSEUDO_GND:       1/      1   100%
+Info: 	          PSEUDO_VCC:       1/      1   100%
+Info: 	               HARD0:       0/   1188     0%
+Info: 	             DSP48E1:      23/     80    28%
+Info: 	                 PAD:       8/    294     2%
+Info: 	       IOB33M_OUTBUF:       0/     72     0%
+Info: 	       IOB33S_OUTBUF:       0/     72     0%
+Info: 	        IOB33_OUTBUF:       5/    150     3%
+Info: 	     IOB33M_INBUF_EN:       0/     72     0%
+Info: 	     IOB33S_INBUF_EN:       0/     72     0%
+Info: 	      IOB33_INBUF_EN:       3/    150     2%
+Info: 	IOB33M_TERM_OVERRIDE:       0/     72     0%
+Info: 	IOB33S_TERM_OVERRIDE:       0/     72     0%
+Info: 	 IOB33_TERM_OVERRIDE:       0/    150     0%
+Info: 	       PULL_OR_KEEP1:       0/    294     0%
+Info: 	            IDELAYE2:       0/    150     0%
+Info: 	        OLOGICE3_TFF:       0/    150     0%
+Info: 	      OLOGICE3_OUTFF:       0/    150     0%
+Info: 	       OLOGICE3_MISR:       0/    150     0%
+Info: 	           OSERDESE2:       0/    150     0%
+Info: 	        ILOGICE3_IFF:       0/    150     0%
+Info: 	ILOGICE3_ZHOLD_DELAY:       0/    150     0%
+Info: 	           ISERDESE2:       0/    150     0%
+Info: 	               BUFIO:       0/     12     0%
+Info: 	            BUFGCTRL:       1/     32     3%
+Info: 	               BSCAN:       0/      4     0%
+Info: 	            DCIRESET:       0/      1     0%
+Info: 	            DNA_PORT:       0/      1     0%
+Info: 	           EFUSE_USR:       0/      1     0%
+Info: 	                BUFG:       0/     32     0%
+Info: 	              BUFHCE:       0/     48     0%
+Info: 	            FIFO18E1:       0/     45     0%
+Info: 	          IDELAYCTRL:       0/      3     0%
+Info: 	            INVERTER:       0/     72     0%
+Info: 	          MMCME2_ADV:       0/      3     0%
+Info: 	        OLOGICE2_TFF:       0/    150     0%
+Info: 	      OLOGICE2_OUTFF:       0/    150     0%
+Info: 	           PLLE2_ADV:       0/      3     0%
+Info: 	            RAMB18E1:      20/     90    22%
+Info: 	            RAMB36E1:      30/     45    66%
+Info: 	           SELMUX2_1:       0/  11550     0%
+Info: 	        RAMBFIFO36E1:       0/     45     0%
+Info: 	           FRAME_ECC:       0/      1     0%
+Info: 	                ICAP:       0/      2     0%
+Info: 	             STARTUP:       0/      1     0%
+Info: 	          USR_ACCESS:       0/      1     0%
+Info: 	        ILOGICE2_IFF:       0/    150     0%
+Info: 	       OLOGICE2_MISR:       0/    150     0%
+
+Info:     source at X54Y51 reached 453 of 2401 offsets
+Info:     source at X33Y58 reached 452 of 2401 offsets
+Info:     source at X66Y42 reached 390 of 2401 offsets
+Info: Delay matrix: 1094 of 2401 offsets measured from 3 sources in 2.00s (window 24).
+Info: Delay matrix: interpolated 1307 structural holes.
+Info: Delay matrix: out-of-window rates 1.0 ps/tile (x), 19.2 ps/tile (y).
+Info: Indexed 63 control sets.
+Info: Placed 8 cells based on constraints.
+Info: Creating initial analytic placement for 2600 cells, random placement wirelen = 516554.
+Info:     at initial placer iter 0, wirelen = 5896
+Info:     at initial placer iter 1, wirelen = 5044
+Info:     at initial placer iter 2, wirelen = 4973
+Info:     at initial placer iter 3, wirelen = 4658
+Info: Running main analytical placer, max placement attempts per cell = 7573832.
+Info:     at iteration #1, type ALL: wirelen solved = 4852, spread = 220847, legal = 242793; time = 1.53s
+Info:     at iteration #2, type ALL: wirelen solved = 7623, spread = 192658, legal = 211578; time = -0.10s
+Info:     at iteration #3, type ALL: wirelen solved = 12556, spread = 168709, legal = 184322; time = 1.84s
+Info:     at iteration #4, type ALL: wirelen solved = 17288, spread = 163754, legal = 177724; time = 1.81s
+Info:     at iteration #5, type ALL: wirelen solved = 19076, spread = 154641, legal = 181344; time = 1.99s
+Info:     at iteration #6, type ALL: wirelen solved = 21228, spread = 149485, legal = 187712; time = 2.02s

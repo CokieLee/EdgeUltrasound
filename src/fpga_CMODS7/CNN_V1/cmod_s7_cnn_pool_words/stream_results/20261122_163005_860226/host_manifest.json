@@ -1,0 +1,9 @@
+{
+  "source": "COM7",
+  "event": 0,
+  "sha256": {
+    "demo\\demo_weights.npz": "8fd1e0dc23cb6ea65039b5d87269cd6f42ff1ea3eae03f2847b4cfc1559bc431",
+    "demo\\demo_config.json": "ba9ffecc1a63042ddd8fe86590da4764d3b21fd61888cae55526b3160e17a042",
+    "demo\\demo_input.npy": "969ad16381ce01657669d839f8afe208727c073b401a90ea2ff376d57c3dfeec"
+  }
+}

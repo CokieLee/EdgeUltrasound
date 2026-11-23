@@ -1,0 +1,17 @@
+{
+  "right_shifts": [
+    0,
+    2,
+    2,
+    2,
+    0
+  ],
+  "bias_left_shifts": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "description": "UNTRAINED synthetic smoke test; not a rat classifier"
+}

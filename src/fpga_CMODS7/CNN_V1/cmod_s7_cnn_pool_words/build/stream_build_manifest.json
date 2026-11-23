@@ -1,0 +1,12 @@
+{
+  "variant": "stream",
+  "sha256": {
+    "rtl/cnn_engine_stream.sv": "4a6ef7313cf4de15ca8efc894463e33389461f75e228979ee554459d17a46907",
+    "rtl/top_stream.sv": "2792e02882374f539926365c6567fda74963ab9f9000aff849b20c6eedbb6b8c",
+    "rtl/uart_rx.sv": "c0517d51f7be5adecc83e9acc8c985002535fcd386aa9e81a4f93a761f3fb6ed",
+    "rtl/uart_tx.sv": "7b722edaabd3f2f0c86e86fda4ba045af3464ee930ab7b8e6f96b2677b4e6a8d",
+    "build.sh": "2017ac026f48d41ba680dac63ee182b32a6c4dcc971a3779f549aa978a3657f4",
+    "cmod_s7_cnn_stream.xdc": "4f7e79c0e8cf118992898cf913c332b442407058b5559aed1f02d1940bb10db9",
+    "build/top_stream.bit": "0718940c5d56526d5c6064d00771580e2c455c54a3c0045be27cc19ed5452654"
+  }
+}

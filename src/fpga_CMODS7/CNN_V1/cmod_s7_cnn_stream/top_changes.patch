@@ -1,0 +1,111 @@
+--- cmod_s7_cnn/rtl/top.sv
++++ cmod_s7_cnn_stream/rtl/top_stream.sv
+@@ -1,7 +1,12 @@
+ // W: 10 config bytes + 15105 little-endian int16 parameters -> A1 ack.
+ // I: 4992 little-endian int16 input values -> infer -> D1, score16,
+ //    original input bytes (9984), D2. No immediate input echo.
+-module top (
++// H -> B5 01 identity. T streams C0..C4 layer words, then original D1/score/input/D2.
++// I retains the original continuous protocol exactly.
++module top_stream #(
++    parameter integer CLOCK_HZ=12_000_000,
++    parameter integer BAUD=115_200
++) (
+     input wire clk, input wire rst_button, input wire uart_rx,
+     output wire uart_tx, output wire [3:0] led
+ );
+@@ -14,9 +19,9 @@
+     wire rx_valid, rx_error, tx_ready;
+     reg [7:0] tx_data;
+     reg tx_valid;
+-    uart_rx rx_inst(.clk(clk),.rst(rst),.rx(uart_rx),.data(rx_data),
++    uart_rx #(.CLOCK_HZ(CLOCK_HZ),.BAUD(BAUD)) rx_inst(.clk(clk),.rst(rst),.rx(uart_rx),.data(rx_data),
+         .valid(rx_valid),.framing_error(rx_error));
+-    uart_tx tx_inst(.clk(clk),.rst(rst),.data(tx_data),.valid(tx_valid),
++    uart_tx #(.CLOCK_HZ(CLOCK_HZ),.BAUD(BAUD)) tx_inst(.clk(clk),.rst(rst),.data(tx_data),.valid(tx_valid),
+         .ready(tx_ready),.tx(uart_tx));
+     reg [39:0] right_shifts, bias_shifts;
+     reg weight_we, input_we, start;
+@@ -25,7 +30,14 @@
+     reg signed [15:0] weight_data, input_data;
+     wire signed [15:0] replay_data, score;
+     wire busy, done;
+-    cnn_engine engine(.clk(clk),.rst(rst),.start(start),
++    reg trace_enable, trace_ready;
++    wire trace_valid;
++    wire [2:0] trace_stage;
++    wire signed [15:0] trace_data;
++    reg [2:0] last_trace_stage;
++    cnn_engine_stream engine(
++        .trace_enable(trace_enable),.trace_ready(trace_ready),
++        .trace_valid(trace_valid),.trace_stage(trace_stage),.trace_data(trace_data),.clk(clk),.rst(rst),.start(start),
+         .weight_we(weight_we),.weight_addr(weight_addr),.weight_data(weight_data),
+         .input_we(input_we),.input_addr(input_addr),.input_data(input_data),
+         .right_shifts(right_shifts),.bias_left_shifts(bias_shifts),
+@@ -34,7 +46,8 @@
+     localparam CMD=0, CFG=1, WLO=2, WHI=3, ACK=4,
+         ILO=5, IHI=6, LAUNCH=7, RUN=8, TAG=9, SCORELO=10,
+         SCOREHI=11, RWAIT1=12, RWAIT2=13, RLO=14, RHI=15,
+-        END_TAG=16, ERROR=17;
++        END_TAG=16, ERROR=17, T_TAG=18, T_LO=19, T_HI=20,
++        T_ACK=21, T_RELEASE=22, H_MAGIC=23, H_VERSION=24;
+     reg [4:0] state;
+     reg [3:0] cfg_index;
+     reg [13:0] index;
+@@ -51,6 +64,11 @@
+             RLO: begin tx_data=replay_data[7:0]; tx_valid=1; end
+             RHI: begin tx_data=replay_data[15:8]; tx_valid=1; end
+             END_TAG: begin tx_data=8'hd2; tx_valid=1; end
++            T_TAG: begin tx_data=8'hc0+{5'd0,trace_stage}; tx_valid=1; end
++            T_LO: begin tx_data=trace_data[7:0]; tx_valid=1; end
++            T_HI: begin tx_data=trace_data[15:8]; tx_valid=1; end
++            H_MAGIC: begin tx_data=8'hb5; tx_valid=1; end
++            H_VERSION: begin tx_data=8'h01; tx_valid=1; end
+             default: begin end
+         endcase
+     end
+@@ -61,9 +79,10 @@
+             weight_addr<=0; input_addr<=0; replay_addr<=0;
+             weight_data<=0; input_data<=0;
+             weights_loaded<=0; error_latched<=0; heartbeat<=0;
++            trace_enable<=0; trace_ready<=0; last_trace_stage<=7;
+         end else begin
+             heartbeat<=heartbeat+1'b1;
+-            weight_we<=0; input_we<=0; start<=0;
++            weight_we<=0; input_we<=0; start<=0; trace_ready<=0;
+             if (rx_error || (rx_valid && !(state==CMD || state==CFG ||
+                     state==WLO || state==WHI || state==ILO || state==IHI))) begin
+                 error_latched<=1; state<=ERROR;
+@@ -71,7 +90,10 @@
+                 CMD: if(rx_valid) begin
+                     index<=0;
+                     if(rx_data==8'h57) begin cfg_index<=0; weights_loaded<=0; state<=CFG; end
+-                    else if(rx_data==8'h49 && weights_loaded) state<=ILO;
++                    else if(rx_data==8'h48) state<=H_MAGIC;
++                    else if((rx_data==8'h49 || rx_data==8'h54) && weights_loaded) begin
++                        trace_enable<=(rx_data==8'h54); last_trace_stage<=7; state<=ILO;
++                    end
+                     else begin error_latched<=1; state<=ERROR; end
+                 end
+                 CFG: if(rx_valid) begin
+@@ -97,7 +119,19 @@
+                     else begin index<=index+1'b1; state<=ILO; end
+                 end
+                 LAUNCH: begin start<=1; state<=RUN; end
+-                RUN: if(done) begin replay_addr<=0; state<=TAG; end
++                RUN: if(trace_valid) begin
++                    state<=(trace_stage!=last_trace_stage) ? T_TAG : T_LO;
++                end else if(done) begin replay_addr<=0; state<=TAG; end
++                T_TAG: if(tx_ready) state<=T_LO;
++                T_LO: if(tx_ready) state<=T_HI;
++                T_HI: if(tx_ready) state<=T_ACK;
++                T_ACK: begin
++                    trace_ready<=1; last_trace_stage<=trace_stage; state<=T_RELEASE;
++                end
++                // Keep RUN from seeing stale trace_valid on the acceptance edge.
++                T_RELEASE: state<=RUN;
++                H_MAGIC: if(tx_ready) state<=H_VERSION;
++                H_VERSION: if(tx_ready) state<=CMD;
+                 TAG: if(tx_ready) state<=SCORELO;
+                 SCORELO: if(tx_ready) state<=SCOREHI;
+                 SCOREHI: if(tx_ready) state<=RWAIT1;

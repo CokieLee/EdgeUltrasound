@@ -1,0 +1,9 @@
+{
+  "source": "build/uart_capture.bin",
+  "event": 0,
+  "sha256": {
+    "build/vectors/demo_weights.npz": "a7c86aa865b03551f9bb0c6d73e5eedfa3d655f0b09710073a44eb6a486d7989",
+    "build/vectors/demo_config.json": "046deeea3c524a5224be1b1c8cf9e24e66d69d890a2f92cb0043f0c2e7e5649f",
+    "build/vectors/demo_input.npy": "969ad16381ce01657669d839f8afe208727c073b401a90ea2ff376d57c3dfeec"
+  }
+}

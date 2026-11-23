@@ -1,0 +1,18 @@
+{
+  "protocol": "CNNSTREAM3",
+  "completed": true,
+  "streaming": false,
+  "snapshot_kind": "Produced output words; not independent RAM readback",
+  "parameter_readback_verified": false,
+  "layer_transport_crc": false,
+  "layers": [],
+  "expected_score": -50,
+  "first_reference_mismatch": null,
+  "first_local_mismatch": null,
+  "input_replay_match": true,
+  "score": {
+    "actual": -50,
+    "expected": -50,
+    "match": true
+  }
+}

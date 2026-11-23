@@ -1,0 +1,143 @@
+{
+  "protocol": "CNNSTREAM1",
+  "completed": true,
+  "streaming": true,
+  "snapshot_kind": "Produced output words; not independent RAM readback",
+  "parameter_readback_verified": false,
+  "layer_transport_crc": false,
+  "layers": [
+    {
+      "name": "stem",
+      "shape": [
+        8,
+        32,
+        156
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 39936,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 39936,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv1",
+      "shape": [
+        16,
+        16,
+        78
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 19968,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 19968,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv2",
+      "shape": [
+        32,
+        8,
+        39
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 9984,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 9984,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv3",
+      "shape": [
+        32,
+        4,
+        20
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 2560,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 2560,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "pool",
+      "shape": [
+        32
+      ],
+      "reference_comparison": {
+        "match": false,
+        "total_values": 32,
+        "mismatched_values": 32,
+        "max_abs_error": 112,
+        "mean_signed_error": -55.28125,
+        "first_mismatch": {
+          "coordinate": [
+            0
+          ],
+          "expected": 94,
+          "actual": 78
+        }
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": false,
+        "total_values": 32,
+        "mismatched_values": 32,
+        "max_abs_error": 112,
+        "mean_signed_error": -55.28125,
+        "first_mismatch": {
+          "coordinate": [
+            0
+          ],
+          "expected": 94,
+          "actual": 78
+        }
+      }
+    }
+  ],
+  "expected_score": 94,
+  "first_reference_mismatch": "pool",
+  "first_local_mismatch": "pool",
+  "input_replay_match": true,
+  "score": {
+    "actual": 78,
+    "expected": 94,
+    "match": false,
+    "from_emitted_pool_and_sent_head": 78,
+    "local_match": true
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "protocol": "CNNSTREAM3",
+  "completed": true,
+  "streaming": true,
+  "snapshot_kind": "Produced output words; not independent RAM readback",
+  "parameter_readback_verified": false,
+  "layer_transport_crc": false,
+  "layers": [
+    {
+      "name": "stem",
+      "shape": [
+        8,
+        32,
+        156
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 39936,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 39936,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv1",
+      "shape": [
+        16,
+        16,
+        78
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 19968,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 19968,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv2",
+      "shape": [
+        32,
+        8,
+        39
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 9984,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 9984,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "conv3",
+      "shape": [
+        32,
+        4,
+        20
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 2560,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 2560,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    },
+    {
+      "name": "pool",
+      "shape": [
+        32
+      ],
+      "reference_comparison": {
+        "match": true,
+        "total_values": 32,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      },
+      "given_emitted_input_and_sent_parameters": {
+        "match": true,
+        "total_values": 32,
+        "mismatched_values": 0,
+        "max_abs_error": 0,
+        "mean_signed_error": 0.0
+      }
+    }
+  ],
+  "expected_score": -50,
+  "first_reference_mismatch": null,
+  "first_local_mismatch": null,
+  "pool_diagnostic": {
+    "sum_vs_emitted_conv3": {
+      "match": true,
+      "total_values": 32,
+      "mismatched_values": 0,
+      "max_abs_error": 0,
+      "mean_signed_error": 0.0
+    },
+    "quotient_vs_fpga_sum_divided_by_80": {
+      "match": true,
+      "total_values": 32,
+      "mismatched_values": 0,
+      "max_abs_error": 0,
+      "mean_signed_error": 0.0
+    },
+    "channels": [
+      {
+        "channel": 0,
+        "expected_sum": 7581,
+        "fpga_sum": 7581,
+        "fpga_pool": 94,
+        "expected_pool_from_fpga_sum": 94
+      },
+      {
+        "channel": 1,
+        "expected_sum": 13890,
+        "fpga_sum": 13890,
+        "fpga_pool": 173,
+        "expected_pool_from_fpga_sum": 173
+      },
+      {
+        "channel": 2,
+        "expected_sum": 5180,
+        "fpga_sum": 5180,
+        "fpga_pool": 64,
+        "expected_pool_from_fpga_sum": 64
+      },
+      {
+        "channel": 3,
+        "expected_sum": 8929,
+        "fpga_sum": 8929,
+        "fpga_pool": 111,
+        "expected_pool_from_fpga_sum": 111
+      },
+      {
+        "channel": 4,
+        "expected_sum": 3825,
+        "fpga_sum": 3825,
+        "fpga_pool": 47,
+        "expected_pool_from_fpga_sum": 47
+      },
+      {
+        "channel": 5,
+        "expected_sum": 9026,
+        "fpga_sum": 9026,
+        "fpga_pool": 112,
+        "expected_pool_from_fpga_sum": 112
+      },
+      {
+        "channel": 6,
+        "expected_sum": 12414,
+        "fpga_sum": 12414,
+        "fpga_pool": 155,
+        "expected_pool_from_fpga_sum": 155
+      },
+      {
+        "channel": 7,
+        "expected_sum": 2567,
+        "fpga_sum": 2567,
+        "fpga_pool": 32,
+        "expected_pool_from_fpga_sum": 32
+      },
+      {
+        "channel": 8,
+        "expected_sum": 1853,
+        "fpga_sum": 1853,
+        "fpga_pool": 23,
+        "expected_pool_from_fpga_sum": 23
+      },
+      {
+        "channel": 9,
+        "expected_sum": 11873,
+        "fpga_sum": 11873,
+        "fpga_pool": 148,
+        "expected_pool_from_fpga_sum": 148
+      },
+      {
+        "channel": 10,
+        "expected_sum": 23753,
+        "fpga_sum": 23753,
+        "fpga_pool": 296,
+        "expected_pool_from_fpga_sum": 296
+      },
+      {
+        "channel": 11,
+        "expected_sum": 16148,
+        "fpga_sum": 16148,
+        "fpga_pool": 201,
+        "expected_pool_from_fpga_sum": 201
+      },
+      {
+        "channel": 12,
+        "expected_sum": 10110,
+        "fpga_sum": 10110,
+        "fpga_pool": 126,
+        "expected_pool_from_fpga_sum": 126
+      },
+      {
+        "channel": 13,
+        "expected_sum": 42168,
+        "fpga_sum": 42168,
+        "fpga_pool": 527,
+        "expected_pool_from_fpga_sum": 527
+      },
+      {
+        "channel": 14,
+        "expected_sum": 26517,
+        "fpga_sum": 26517,
+        "fpga_pool": 331,
+        "expected_pool_from_fpga_sum": 331
+      },
+      {
+        "channel": 15,
+        "expected_sum": 12268,
+        "fpga_sum": 12268,
+        "fpga_pool": 153,
+        "expected_pool_from_fpga_sum": 153
+      },
+      {
+        "channel": 16,
+        "expected_sum": 7790,
+        "fpga_sum": 7790,
+        "fpga_pool": 97,
+        "expected_pool_from_fpga_sum": 97
+      },
+      {
+        "channel": 17,
+        "expected_sum": 24211,
+        "fpga_sum": 24211,
+        "fpga_pool": 302,
+        "expected_pool_from_fpga_sum": 302
+      },
+      {
+        "channel": 18,
+        "expected_sum": 5341,
+        "fpga_sum": 5341,
+        "fpga_pool": 66,
+        "expected_pool_from_fpga_sum": 66
+      },
+      {
+        "channel": 19,
+        "expected_sum": 11338,
+        "fpga_sum": 11338,
+        "fpga_pool": 141,
+        "expected_pool_from_fpga_sum": 141
+      },
+      {
+        "channel": 20,
+        "expected_sum": 6729,
+        "fpga_sum": 6729,
+        "fpga_pool": 84,
+        "expected_pool_from_fpga_sum": 84
+      },
+      {
+        "channel": 21,
+        "expected_sum": 6418,
+        "fpga_sum": 6418,
+        "fpga_pool": 80,
+        "expected_pool_from_fpga_sum": 80
+      },
+      {
+        "channel": 22,
+        "expected_sum": 12018,
+        "fpga_sum": 12018,
+        "fpga_pool": 150,
+        "expected_pool_from_fpga_sum": 150
+      },
+      {
+        "channel": 23,
+        "expected_sum": 11764,
+        "fpga_sum": 11764,
+        "fpga_pool": 147,
+        "expected_pool_from_fpga_sum": 147
+      },
+      {
+        "channel": 24,
+        "expected_sum": 17265,
+        "fpga_sum": 17265,
+        "fpga_pool": 215,
+        "expected_pool_from_fpga_sum": 215
+      },
+      {
+        "channel": 25,
+        "expected_sum": 7207,
+        "fpga_sum": 7207,
+        "fpga_pool": 90,
+        "expected_pool_from_fpga_sum": 90
+      },
+      {
+        "channel": 26,
+        "expected_sum": 21500,
+        "fpga_sum": 21500,
+        "fpga_pool": 268,
+        "expected_pool_from_fpga_sum": 268
+      },
+      {
+        "channel": 27,
+        "expected_sum": 35086,
+        "fpga_sum": 35086,
+        "fpga_pool": 438,
+        "expected_pool_from_fpga_sum": 438
+      },
+      {
+        "channel": 28,
+        "expected_sum": 10944,
+        "fpga_sum": 10944,
+        "fpga_pool": 136,
+        "expected_pool_from_fpga_sum": 136
+      },
+      {
+        "channel": 29,
+        "expected_sum": 4196,
+        "fpga_sum": 4196,
+        "fpga_pool": 52,
+        "expected_pool_from_fpga_sum": 52
+      },
+      {
+        "channel": 30,
+        "expected_sum": 5993,
+        "fpga_sum": 5993,
+        "fpga_pool": 74,
+        "expected_pool_from_fpga_sum": 74
+      },
+      {
+        "channel": 31,
+        "expected_sum": 22031,
+        "fpga_sum": 22031,
+        "fpga_pool": 275,
+        "expected_pool_from_fpga_sum": 275
+      }
+    ]
+  },
+  "input_replay_match": true,
+  "score": {
+    "actual": -50,
+    "expected": -50,
+    "match": true,
+    "from_emitted_pool_and_sent_head": -50,
+    "local_match": true
+  }
+}
