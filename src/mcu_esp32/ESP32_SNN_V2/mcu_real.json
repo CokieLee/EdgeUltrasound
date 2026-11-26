@@ -3,19 +3,19 @@
     {
       "score": -0.7709156,
       "predicted_target_percent": 9.7299652,
-      "inference_us": 816,
+      "inference_us": 822,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame00.npy"
     },
     {
       "score": -0.8940873,
       "predicted_target_percent": 8.4982481,
-      "inference_us": 715,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame01.npy"
     },
     {
       "score": -0.8669013,
       "predicted_target_percent": 8.7701082,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame02.npy"
     },
     {
@@ -45,13 +45,13 @@
     {
       "score": -0.8887821,
       "predicted_target_percent": 8.5513,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame07.npy"
     },
     {
       "score": -0.8877703,
       "predicted_target_percent": 8.5614185,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame08.npy"
     },
     {
@@ -63,13 +63,13 @@
     {
       "score": -1.0521342,
       "predicted_target_percent": 6.9177799,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame00.npy"
     },
     {
       "score": -1.2245061,
       "predicted_target_percent": 5.1940598,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame01.npy"
     },
     {
@@ -81,13 +81,13 @@
     {
       "score": -1.1527346,
       "predicted_target_percent": 5.9117746,
-      "inference_us": 715,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame03.npy"
     },
     {
       "score": -1.1701142,
       "predicted_target_percent": 5.7379799,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame04.npy"
     },
     {
@@ -105,13 +105,13 @@
     {
       "score": -1.2609539,
       "predicted_target_percent": 4.8295822,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame07.npy"
     },
     {
       "score": -1.3304292,
       "predicted_target_percent": 4.1348295,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat02_frame08.npy"
     },
     {
@@ -129,13 +129,13 @@
     {
       "score": -0.8392559,
       "predicted_target_percent": 9.0465622,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat03_frame01.npy"
     },
     {
       "score": -0.888943,
       "predicted_target_percent": 8.5496922,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat03_frame02.npy"
     },
     {
@@ -165,13 +165,13 @@
     {
       "score": -0.8421558,
       "predicted_target_percent": 9.0175638,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat03_frame07.npy"
     },
     {
       "score": -0.7689239,
       "predicted_target_percent": 9.7498827,
-      "inference_us": 716,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat03_frame08.npy"
     },
     {
@@ -195,7 +195,7 @@
     {
       "score": -0.614511,
       "predicted_target_percent": 11.2940121,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat04_frame02.npy"
     },
     {
@@ -207,13 +207,13 @@
     {
       "score": -0.7459049,
       "predicted_target_percent": 9.980072,
-      "inference_us": 723,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat04_frame04.npy"
     },
     {
       "score": -0.7268804,
       "predicted_target_percent": 10.1703176,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat04_frame05.npy"
     },
     {
@@ -231,13 +231,13 @@
     {
       "score": -0.7109171,
       "predicted_target_percent": 10.3299503,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat04_frame08.npy"
     },
     {
       "score": -0.7218089,
       "predicted_target_percent": 10.2210321,
-      "inference_us": 716,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat04_frame09.npy"
     },
     {
@@ -285,25 +285,25 @@
     {
       "score": -0.032661,
       "predicted_target_percent": 17.1125107,
-      "inference_us": 716,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat05_frame07.npy"
     },
     {
       "score": -0.0160748,
       "predicted_target_percent": 17.2783737,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat05_frame08.npy"
     },
     {
       "score": 0.1767962,
       "predicted_target_percent": 19.2070827,
-      "inference_us": 721,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat05_frame09.npy"
     },
     {
       "score": 0.8634504,
       "predicted_target_percent": 26.0736256,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat06_frame00.npy"
     },
     {
@@ -315,7 +315,7 @@
     {
       "score": 0.8596671,
       "predicted_target_percent": 26.0357914,
-      "inference_us": 721,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat06_frame02.npy"
     },
     {
@@ -339,7 +339,7 @@
     {
       "score": 0.8712759,
       "predicted_target_percent": 26.1518803,
-      "inference_us": 715,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat06_frame06.npy"
     },
     {
@@ -357,7 +357,7 @@
     {
       "score": 0.859754,
       "predicted_target_percent": 26.0366611,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat06_frame09.npy"
     },
     {
@@ -375,7 +375,7 @@
     {
       "score": -0.5807473,
       "predicted_target_percent": 11.6316481,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat07_frame02.npy"
     },
     {
@@ -393,7 +393,7 @@
     {
       "score": -0.576539,
       "predicted_target_percent": 11.6737318,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat07_frame05.npy"
     },
     {
@@ -411,7 +411,7 @@
     {
       "score": -0.5771838,
       "predicted_target_percent": 11.6672831,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat07_frame08.npy"
     },
     {
@@ -429,25 +429,25 @@
     {
       "score": -0.0401131,
       "predicted_target_percent": 17.0379906,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame01.npy"
     },
     {
       "score": -0.0415428,
       "predicted_target_percent": 17.0236931,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame02.npy"
     },
     {
       "score": -0.0197216,
       "predicted_target_percent": 17.2419052,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame03.npy"
     },
     {
       "score": -0.0102139,
       "predicted_target_percent": 17.3369827,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame04.npy"
     },
     {
@@ -459,13 +459,13 @@
     {
       "score": 0.0518491,
       "predicted_target_percent": 17.957613,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame06.npy"
     },
     {
       "score": 0.0660075,
       "predicted_target_percent": 18.0991955,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat08_frame07.npy"
     },
     {
@@ -483,13 +483,13 @@
     {
       "score": 0.2747564,
       "predicted_target_percent": 20.1866856,
-      "inference_us": 715,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat09_frame00.npy"
     },
     {
       "score": 0.1693205,
       "predicted_target_percent": 19.1323261,
-      "inference_us": 716,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat09_frame01.npy"
     },
     {
@@ -501,13 +501,13 @@
     {
       "score": 0.1695468,
       "predicted_target_percent": 19.1345901,
-      "inference_us": 722,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat09_frame03.npy"
     },
     {
       "score": 0.1698434,
       "predicted_target_percent": 19.1375561,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat09_frame04.npy"
     },
     {
@@ -525,7 +525,7 @@
     {
       "score": 0.1710693,
       "predicted_target_percent": 19.1498146,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat09_frame07.npy"
     },
     {
@@ -555,7 +555,7 @@
     {
       "score": -0.8987673,
       "predicted_target_percent": 8.4514484,
-      "inference_us": 722,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat10_frame02.npy"
     },
     {
@@ -579,13 +579,13 @@
     {
       "score": -0.8526865,
       "predicted_target_percent": 8.9122562,
-      "inference_us": 723,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat10_frame06.npy"
     },
     {
       "score": -0.8528204,
       "predicted_target_percent": 8.9109173,
-      "inference_us": 722,
+      "inference_us": 723,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat10_frame07.npy"
     },
     {
@@ -597,19 +597,19 @@
     {
       "score": -0.8516299,
       "predicted_target_percent": 8.922822,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat10_frame09.npy"
     },
     {
       "score": -0.4586481,
       "predicted_target_percent": 12.8526402,
-      "inference_us": 721,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame00.npy"
     },
     {
       "score": -0.4427072,
       "predicted_target_percent": 13.0120487,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame01.npy"
     },
     {
@@ -621,13 +621,13 @@
     {
       "score": -0.4158946,
       "predicted_target_percent": 13.2801752,
-      "inference_us": 715,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame03.npy"
     },
     {
       "score": -0.4323485,
       "predicted_target_percent": 13.1156368,
-      "inference_us": 721,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame04.npy"
     },
     {
@@ -645,61 +645,61 @@
     {
       "score": -0.3583015,
       "predicted_target_percent": 13.8561068,
-      "inference_us": 723,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame07.npy"
     },
     {
       "score": -0.3643897,
       "predicted_target_percent": 13.7952251,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame08.npy"
     },
     {
       "score": -0.3717601,
       "predicted_target_percent": 13.7215195,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat11_frame09.npy"
     },
     {
       "score": 0.3806473,
       "predicted_target_percent": 21.245594,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame00.npy"
     },
     {
       "score": 0.4004033,
       "predicted_target_percent": 21.4431553,
-      "inference_us": 722,
+      "inference_us": 723,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame01.npy"
     },
     {
       "score": 0.3674681,
       "predicted_target_percent": 21.113802,
-      "inference_us": 721,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame02.npy"
     },
     {
       "score": 0.4020841,
       "predicted_target_percent": 21.4599628,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame03.npy"
     },
     {
       "score": 0.3485985,
       "predicted_target_percent": 20.925106,
-      "inference_us": 721,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame04.npy"
     },
     {
       "score": 0.4072062,
       "predicted_target_percent": 21.5111828,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame05.npy"
     },
     {
       "score": 0.4063765,
       "predicted_target_percent": 21.5028858,
-      "inference_us": 723,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame06.npy"
     },
     {
@@ -717,49 +717,49 @@
     {
       "score": 0.4014597,
       "predicted_target_percent": 21.4537182,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat12_frame09.npy"
     },
     {
       "score": 0.9178122,
       "predicted_target_percent": 26.6172428,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame00.npy"
     },
     {
       "score": 0.9203829,
       "predicted_target_percent": 26.6429501,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame01.npy"
     },
     {
       "score": 0.9207424,
       "predicted_target_percent": 26.6465454,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame02.npy"
     },
     {
       "score": 0.9217569,
       "predicted_target_percent": 26.6566906,
-      "inference_us": 715,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame03.npy"
     },
     {
       "score": 0.9205599,
       "predicted_target_percent": 26.6447201,
-      "inference_us": 723,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame04.npy"
     },
     {
       "score": 0.9205338,
       "predicted_target_percent": 26.6444588,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame05.npy"
     },
     {
       "score": 0.9215039,
       "predicted_target_percent": 26.6541595,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame06.npy"
     },
     {
@@ -771,19 +771,19 @@
     {
       "score": 0.9214197,
       "predicted_target_percent": 26.6533184,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame08.npy"
     },
     {
       "score": 0.9209628,
       "predicted_target_percent": 26.6487503,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat13_frame09.npy"
     },
     {
       "score": 1.0467613,
       "predicted_target_percent": 27.9067345,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat14_frame00.npy"
     },
     {
@@ -795,19 +795,19 @@
     {
       "score": 1.0516779,
       "predicted_target_percent": 27.9559002,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat14_frame02.npy"
     },
     {
       "score": 1.0517178,
       "predicted_target_percent": 27.9562988,
-      "inference_us": 715,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat14_frame03.npy"
     },
     {
       "score": 1.0518057,
       "predicted_target_percent": 27.9571781,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat14_frame04.npy"
     },
     {
@@ -825,7 +825,7 @@
     {
       "score": 1.0521042,
       "predicted_target_percent": 27.9601631,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat14_frame07.npy"
     },
     {
@@ -843,19 +843,19 @@
     {
       "score": 0.4020672,
       "predicted_target_percent": 21.4597931,
-      "inference_us": 723,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat15_frame00.npy"
     },
     {
       "score": 0.3888372,
       "predicted_target_percent": 21.3274937,
-      "inference_us": 723,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat15_frame01.npy"
     },
     {
       "score": 0.3914389,
       "predicted_target_percent": 21.3535099,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat15_frame02.npy"
     },
     {
@@ -897,19 +897,19 @@
     {
       "score": 0.4661044,
       "predicted_target_percent": 22.1001644,
-      "inference_us": 723,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat15_frame09.npy"
     },
     {
       "score": 0.717346,
       "predicted_target_percent": 24.6125813,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame00.npy"
     },
     {
       "score": 0.7202645,
       "predicted_target_percent": 24.6417656,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame01.npy"
     },
     {
@@ -927,7 +927,7 @@
     {
       "score": 0.7207407,
       "predicted_target_percent": 24.6465282,
-      "inference_us": 722,
+      "inference_us": 716,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame04.npy"
     },
     {
@@ -939,19 +939,19 @@
     {
       "score": 0.672812,
       "predicted_target_percent": 24.1672401,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame06.npy"
     },
     {
       "score": 0.7208576,
       "predicted_target_percent": 24.6476974,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame07.npy"
     },
     {
       "score": 0.6729661,
       "predicted_target_percent": 24.1687832,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat16_frame08.npy"
     },
     {
@@ -975,19 +975,19 @@
     {
       "score": 0.6396599,
       "predicted_target_percent": 23.8357201,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat17_frame02.npy"
     },
     {
       "score": 0.6412208,
       "predicted_target_percent": 23.8513298,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat17_frame03.npy"
     },
     {
       "score": 0.6627326,
       "predicted_target_percent": 24.0664482,
-      "inference_us": 716,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat17_frame04.npy"
     },
     {
@@ -1005,13 +1005,13 @@
     {
       "score": 0.6631994,
       "predicted_target_percent": 24.0711155,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat17_frame07.npy"
     },
     {
       "score": 0.6417961,
       "predicted_target_percent": 23.8570824,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat17_frame08.npy"
     },
     {
@@ -1029,31 +1029,31 @@
     {
       "score": -0.3633547,
       "predicted_target_percent": 13.8055744,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame01.npy"
     },
     {
       "score": -0.3631184,
       "predicted_target_percent": 13.8079376,
-      "inference_us": 716,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame02.npy"
     },
     {
       "score": -0.3630909,
       "predicted_target_percent": 13.8082123,
-      "inference_us": 721,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame03.npy"
     },
     {
       "score": -0.3637958,
       "predicted_target_percent": 13.8011637,
-      "inference_us": 721,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame04.npy"
     },
     {
       "score": -0.2672505,
       "predicted_target_percent": 14.7666159,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame05.npy"
     },
     {
@@ -1077,7 +1077,7 @@
     {
       "score": -0.2681644,
       "predicted_target_percent": 14.7574768,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat18_frame09.npy"
     },
     {
@@ -1089,13 +1089,13 @@
     {
       "score": 0.4732739,
       "predicted_target_percent": 22.1718597,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat19_frame01.npy"
     },
     {
       "score": 0.4581314,
       "predicted_target_percent": 22.0204353,
-      "inference_us": 722,
+      "inference_us": 723,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat19_frame02.npy"
     },
     {
@@ -1107,7 +1107,7 @@
     {
       "score": 0.4589485,
       "predicted_target_percent": 22.0286064,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat19_frame04.npy"
     },
     {
@@ -1119,7 +1119,7 @@
     {
       "score": 0.4578336,
       "predicted_target_percent": 22.017458,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat19_frame06.npy"
     },
     {
@@ -1137,7 +1137,7 @@
     {
       "score": 0.4571504,
       "predicted_target_percent": 22.0106258,
-      "inference_us": 722,
+      "inference_us": 715,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat19_frame09.npy"
     },
     {
@@ -1149,13 +1149,13 @@
     {
       "score": -0.317191,
       "predicted_target_percent": 14.267211,
-      "inference_us": 721,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat20_frame01.npy"
     },
     {
       "score": -0.391706,
       "predicted_target_percent": 13.5220613,
-      "inference_us": 722,
+      "inference_us": 721,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat20_frame02.npy"
     },
     {
@@ -1173,19 +1173,19 @@
     {
       "score": -0.3181535,
       "predicted_target_percent": 14.2575865,
-      "inference_us": 716,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat20_frame05.npy"
     },
     {
       "score": -0.3878959,
       "predicted_target_percent": 13.5601616,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat20_frame06.npy"
     },
     {
       "score": -0.3183951,
       "predicted_target_percent": 14.2551699,
-      "inference_us": 715,
+      "inference_us": 722,
       "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat20_frame07.npy"
     },
     {

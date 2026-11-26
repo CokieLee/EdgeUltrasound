@@ -1,5 +1,8 @@
 #include <Arduino.h>
 #include <esp_timer.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+#include <cstring>
 #include <limits>
 
 #include "snn_model_data.h"
@@ -17,6 +20,14 @@ static_assert(sizeof(float) == 4 && std::numeric_limits<float>::is_iec559,
 
 float tokens[kTimesteps][kFeatures];
 size_t received = 0;
+uint32_t benchmark_ms = 0;
+uint8_t duration_bytes = 0;
+bool receiving_duration = false;
+
+// Four 0xFF bytes are a binary32 NaN, outside the valid input domain.
+constexpr unsigned char kPowerCommand[] = {0xff, 0xff, 0xff, 0xff};
+constexpr unsigned long kSettleMs = 2000;
+constexpr int64_t kYieldEveryUs = 100000;
 
 template <size_t N>
 float dot(const float (&weights)[N], const float (&values)[N]) {
@@ -77,6 +88,42 @@ float infer() {
   return score;
 }
 
+void power_benchmark(uint32_t duration_ms) {
+  Serial.print("SNN_POWER_START ");
+  Serial.print(static_cast<unsigned long>(kSettleMs));
+  Serial.print(' ');
+  Serial.println(static_cast<unsigned long>(duration_ms));
+  Serial.flush();
+  delay(kSettleMs);
+
+  const int64_t start = esp_timer_get_time();
+  int64_t now = start;
+  int64_t last_yield = start;
+  const int64_t deadline = start + static_cast<int64_t>(duration_ms) * 1000;
+  unsigned long count = 0;
+  float score = 0.0f;
+  do {
+    score = infer();
+    // Keep each call observable and prevent hoisting it out of the loop.
+    asm volatile("" : : "m"(score) : "memory");
+    ++count;
+    now = esp_timer_get_time();
+    if (now < deadline && now - last_yield >= kYieldEveryUs) {
+      vTaskDelay(1);  // Give the idle task time to run.
+      now = esp_timer_get_time();
+      last_yield = now;
+    }
+  } while (now < deadline);
+
+  Serial.print("SNN_POWER_RESULT ");
+  Serial.print(count);
+  Serial.print(' ');
+  Serial.print(static_cast<unsigned long>(now - start));
+  Serial.print(' ');
+  Serial.println(score, 7);
+  Serial.write(kAck);
+}
+
 }  // namespace
 
 void setup() {
@@ -92,7 +139,33 @@ void loop() {
     if (byte < 0) {
       return;
     }
+    if (receiving_duration) {
+      benchmark_ms |= static_cast<uint32_t>(byte) << (8 * duration_bytes++);
+      if (duration_bytes == 4) {
+        receiving_duration = false;
+        if (benchmark_ms < 1000 || benchmark_ms > 60000) {
+          benchmark_ms = 0;
+          Serial.println("SNN_POWER_ERROR duration must be 1000 to 60000 ms");
+          return;
+        }
+      }
+      continue;
+    }
     bytes[received++] = static_cast<unsigned char>(byte);
+    if (received == sizeof(kPowerCommand) && benchmark_ms == 0
+        && std::memcmp(bytes, kPowerCommand, sizeof(kPowerCommand)) == 0) {
+      receiving_duration = true;
+      duration_bytes = 0;
+      received = 0;
+    }
+  }
+
+  if (benchmark_ms != 0) {
+    const uint32_t duration_ms = benchmark_ms;
+    benchmark_ms = 0;
+    received = 0;
+    power_benchmark(duration_ms);
+    return;
   }
 
   const int64_t start = esp_timer_get_time();
