@@ -1,0 +1,16 @@
+{
+  "architecture": "skip8",
+  "width": 8,
+  "skip": true,
+  "gain": 81.0234375,
+  "target_mean": 17.43912124633789,
+  "target_scale": 10,
+  "seed": 42,
+  "checkpoint_sha256": "cb1ebdcb10bf540e81a883e2d82b8fd87e39d78976138cc127ee9b3013ab3704",
+  "weights_sha256": "e5ffe2c0701069765098f004dad60b7001f8a644ab6d597f46c3229bf37b0530",
+  "parameters": 665,
+  "weight_fraction": 15,
+  "input_fraction": 12,
+  "voltage_fraction": 18,
+  "score_fraction": 20
+}
