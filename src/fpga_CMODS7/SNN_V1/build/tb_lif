@@ -1,0 +1,192 @@
+#! /home/beepborp/tools/oss-cad-suite/bin/vvp
+:ivl_version "14.0 (devel)" "(s20260301-626-g7e3d0c6bd-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/system.vpi";
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/v2005_math.vpi";
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/va_math.vpi";
+:vpi_module "/home/beepborp/tools/oss-cad-suite/lib/ivl/v2009.vpi";
+S_0x55555ca9c880 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x55555caa75e0 .scope module, "tb_lif" "tb_lif" 3 2;
+ .timescale -9 -12;
+v0x55555cac7d10_0 .var/s "current", 15 0;
+v0x55555cac7df0_0 .net/s "membrane", 31 0, L_0x55555cad8c80;  1 drivers
+v0x55555cac7e90_0 .var/s "previous", 31 0;
+v0x55555cac7f30_0 .net "spike", 0 0, L_0x55555cad8e80;  1 drivers
+S_0x55555caa7770 .scope task, "check" "check" 3 9, 3 9 0, S_0x55555caa75e0;
+ .timescale -9 -12;
+v0x55555caa7950_0 .var/s "expected_mem", 31 0;
+v0x55555cac6480_0 .var "expected_spike", 0 0;
+v0x55555cac6540_0 .var/s "injection", 15 0;
+v0x55555cac6600_0 .var/s "old_mem", 31 0;
+TD_tb_lif.check ;
+    %load/vec4 v0x55555cac6600_0;
+    %store/vec4 v0x55555cac7e90_0, 0, 32;
+    %load/vec4 v0x55555cac6540_0;
+    %store/vec4 v0x55555cac7d10_0, 0, 16;
+    %delay 1000, 0;
+    %load/vec4 v0x55555cac7df0_0;
+    %load/vec4 v0x55555caa7950_0;
+    %cmp/ne;
+    %jmp/1 T_0.2, 6;
+    %flag_mov 8, 6;
+    %load/vec4 v0x55555cac7f30_0;
+    %load/vec4 v0x55555cac6480_0;
+    %cmp/ne;
+    %flag_or 6, 8;
+T_0.2;
+    %jmp/0xz  T_0.0, 6;
+    %vpi_call/w 3 17 "$fatal", 32'sb00000000000000000000000000000001, "old=%0d current=%0d: got %0d/%b, expected %0d/%b", v0x55555cac7e90_0, v0x55555cac7d10_0, v0x55555cac7df0_0, v0x55555cac7f30_0, v0x55555caa7950_0, v0x55555cac6480_0 {0 0 0};
+T_0.0 ;
+    %end;
+S_0x55555cac66e0 .scope module, "dut" "lif_step" 3 7, 4 1 0, S_0x55555caa75e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "previous";
+    .port_info 1 /INPUT 16 "current";
+    .port_info 2 /OUTPUT 32 "membrane";
+    .port_info 3 /OUTPUT 1 "spike";
+P_0x55555cac68e0 .param/l "THRESHOLD" 1 4 7, +C4<00000000000000000000010000000000>;
+v0x55555cac6980_0 .net/s *"_ivl_0", 47 0, L_0x55555cac8000;  1 drivers
+v0x55555cac6a60_0 .net *"_ivl_13", 0 0, L_0x55555cad8550;  1 drivers
+v0x55555cac6b40_0 .net *"_ivl_15", 15 0, L_0x55555cad8680;  1 drivers
+v0x55555cac6c00_0 .net/s *"_ivl_18", 31 0, L_0x55555cad88b0;  1 drivers
+L_0x7a813c59f018 .functor BUFT 1, C4<000000000000000000000000000000000111001100110011>, C4<0>, C4<0>, C4<0>;
+v0x55555cac6ce0_0 .net/2s *"_ivl_2", 47 0, L_0x7a813c59f018;  1 drivers
+L_0x7a813c59f060 .functor BUFT 1, C4<00000000000000000000010000000000>, C4<0>, C4<0>, C4<0>;
+v0x55555cac6e10_0 .net/2s *"_ivl_20", 31 0, L_0x7a813c59f060;  1 drivers
+v0x55555cac6ef0_0 .net *"_ivl_22", 0 0, L_0x55555cad89f0;  1 drivers
+L_0x7a813c59f0a8 .functor BUFT 1, C4<00000000000000000000010000000000>, C4<0>, C4<0>, C4<0>;
+v0x55555cac6fb0_0 .net/2s *"_ivl_24", 31 0, L_0x7a813c59f0a8;  1 drivers
+L_0x7a813c59f0f0 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x55555cac7090_0 .net/2s *"_ivl_26", 31 0, L_0x7a813c59f0f0;  1 drivers
+v0x55555cac7200_0 .net *"_ivl_28", 31 0, L_0x55555cad8b40;  1 drivers
+L_0x7a813c59f138 .functor BUFT 1, C4<00000000000000000000010000000000>, C4<0>, C4<0>, C4<0>;
+v0x55555cac72e0_0 .net/2s *"_ivl_32", 31 0, L_0x7a813c59f138;  1 drivers
+v0x55555cac73c0_0 .net *"_ivl_6", 47 0, L_0x55555cad8340;  1 drivers
+v0x55555cac74a0_0 .net *"_ivl_8", 32 0, L_0x55555cad8250;  1 drivers
+v0x55555cac7580_0 .net/s "beta_product", 47 0, L_0x55555cad80e0;  1 drivers
+v0x55555cac7660_0 .net/s "current", 15 0, v0x55555cac7d10_0;  1 drivers
+v0x55555cac7740_0 .net/s "injection", 31 0, L_0x55555cad8770;  1 drivers
+v0x55555cac7820_0 .net/s "leak", 31 0, L_0x55555cad8460;  1 drivers
+v0x55555cac7a10_0 .net/s "membrane", 31 0, L_0x55555cad8c80;  alias, 1 drivers
+v0x55555cac7af0_0 .net/s "previous", 31 0, v0x55555cac7e90_0;  1 drivers
+v0x55555cac7bd0_0 .net "spike", 0 0, L_0x55555cad8e80;  alias, 1 drivers
+L_0x55555cac8000 .extend/s 48, v0x55555cac7e90_0;
+L_0x55555cad80e0 .arith/mult 48, L_0x55555cac8000, L_0x7a813c59f018;
+L_0x55555cad8250 .part L_0x55555cad80e0, 15, 33;
+L_0x55555cad8340 .extend/s 48, L_0x55555cad8250;
+L_0x55555cad8460 .part L_0x55555cad8340, 0, 32;
+L_0x55555cad8550 .part v0x55555cac7d10_0, 15, 1;
+L_0x55555cad8680 .repeat 16, 16, L_0x55555cad8550;
+L_0x55555cad8770 .concat [ 16 16 0 0], v0x55555cac7d10_0, L_0x55555cad8680;
+L_0x55555cad88b0 .arith/sum 32, L_0x55555cad8460, L_0x55555cad8770;
+L_0x55555cad89f0 .cmp/gt.s 32, v0x55555cac7e90_0, L_0x7a813c59f060;
+L_0x55555cad8b40 .functor MUXZ 32, L_0x7a813c59f0f0, L_0x7a813c59f0a8, L_0x55555cad89f0, C4<>;
+L_0x55555cad8c80 .arith/sub 32, L_0x55555cad88b0, L_0x55555cad8b40;
+L_0x55555cad8e80 .cmp/gt.s 32, L_0x55555cad8c80, L_0x7a813c59f138;
+    .scope S_0x55555caa75e0;
+T_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 1024, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 1024, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 1025, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 1025, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 1024, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 1024, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 103, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 1025, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 4294967194, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 4294967295, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 4294967295, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 600, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 600, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 600, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 1139, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 600, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 1139, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 601, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 600, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %pushi/vec4 601, 0, 32;
+    %store/vec4 v0x55555cac6600_0, 0, 32;
+    %pushi/vec4 1140, 0, 32;
+    %store/vec4 v0x55555caa7950_0, 0, 32;
+    %pushi/vec4 600, 0, 16;
+    %store/vec4 v0x55555cac6540_0, 0, 16;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55555cac6480_0, 0, 1;
+    %fork TD_tb_lif.check, S_0x55555caa7770;
+    %join;
+    %vpi_call/w 3 31 "$display", "PASS LIF threshold, signed leak and delayed reset" {0 0 0};
+    %vpi_call/w 3 32 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "sim/tb_lif.sv";
+    "rtl/lif_step.sv";

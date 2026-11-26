@@ -1,0 +1,18 @@
+{
+  "format": "SNN4_Q10_V1",
+  "right_shifts": [
+    10,
+    10,
+    0,
+    0,
+    0
+  ],
+  "bias_left_shifts": [
+    10,
+    10,
+    0,
+    0,
+    0
+  ],
+  "description": "Untrained synthetic hardware smoke test"
+}

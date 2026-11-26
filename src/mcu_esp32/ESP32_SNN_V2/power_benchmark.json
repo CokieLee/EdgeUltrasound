@@ -1,0 +1,14 @@
+{
+  "mode": "power_benchmark",
+  "requested_seconds": 30,
+  "inferences": 41288,
+  "elapsed_us": 30000597,
+  "mean_us_per_inference": 726.6178308467352,
+  "inferences_per_second": 1376.2392795050046,
+  "score": -0.7709156,
+  "rail_voltage_v": 3.3,
+  "current_ma": 66.79,
+  "rail_power_mw": 220.407,
+  "energy_per_inference_uj": 160.15165624343635,
+  "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\Tokens\\float32\\rat01_frame00.npy"
+}
