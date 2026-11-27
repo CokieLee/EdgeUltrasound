@@ -46,7 +46,7 @@ DEFAULT_INPUT_DIR = Path(
     r"C:\Users\ethan\Documents\Duke\Classes\Neuromorphic\Stanford_Murine_RawRFData_TrainingFormatted"
 )
 DEFAULT_OUTPUT_DIR = Path(
-    r"C:\Users\ethan\Documents\Duke\Classes\Neuromorphic\Stanford_Murine_Processed_RFData_SNNV2"
+    r"C:\Users\ethan\Documents\Duke\Classes\Neuromorphic\Stanford_Murine_Processed_RFData_SNNV2\skip8_V2.1_1127"
 )
 # Optional: set this to the matching SNN V2 config.json to omit the CLI flag.
 DEFAULT_MODEL_CONFIG = None

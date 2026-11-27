@@ -1,0 +1,12 @@
+{
+  "architecture": "skip8",
+  "width": 8,
+  "skip": true,
+  "gain": 81.0234375,
+  "clip": 5.0,
+  "target_mean": 17.43912124633789,
+  "target_scale": 10,
+  "seed": 42,
+  "checkpoint_sha256": "x",
+  "weights_sha256": "y"
+}
