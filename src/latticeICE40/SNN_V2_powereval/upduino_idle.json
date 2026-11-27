@@ -1,0 +1,16 @@
+{
+  "mode": "idle",
+  "clock_hz": 12000000,
+  "requested_seconds": 30,
+  "cycles": 360000000,
+  "elapsed_seconds": 30.0,
+  "inferences": 0,
+  "python_score_q20": -808280,
+  "fpga_score_q20": null,
+  "score_match": null,
+  "repeat_scores_consistent": null,
+  "input_crc_match": true,
+  "rail_voltage_v": 1.2,
+  "match": true,
+  "input": "/mnt/c/Users/ethan/Documents/Duke/Classes/Neuromorphic/Stanford_Murine_Processed_RFData_SNNV2/Tokens/float32/rat01_frame00.npy"
+}

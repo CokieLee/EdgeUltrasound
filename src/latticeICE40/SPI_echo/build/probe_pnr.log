@@ -1,0 +1,255 @@
+Info: constrained 'clk' to bel 'X19/Y0/io1'
+Info: constrained 'spi_mosi' to bel 'X23/Y0/io0'
+Info: constrained 'spi_miso' to bel 'X23/Y0/io1'
+Info: constrained 'flash_cs_n' to bel 'X24/Y0/io1'
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: Packing LUT-FFs..
+Info:        2 LCs used as LUT4 only
+Info:       11 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:        0 LCs used as DFF only
+Info: Packing carries..
+Info:        0 LCs used as CARRY only
+Info: Packing indirect carry+LUT pairs...
+Info:        0 LUTs merged into carry LCs
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info: Packing special functions..
+Info: Packing PLLs..
+Info: Promoting globals..
+Info: promoting clk$SB_IO_IN (fanout 11)
+Info: Constraining chains...
+Info:        1 LCs used to legalise carry chains.
+Info: Checksum: 0xde0216a2
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:      17/   5280     0%
+Info: 	        ICESTORM_RAM:       0/     30     0%
+Info: 	               SB_IO:       4/     39    10%
+Info: 	               SB_GB:       1/      8    12%
+Info: 	        ICESTORM_PLL:       0/      1     0%
+Info: 	         SB_WARMBOOT:       0/      1     0%
+Info: 	        ICESTORM_DSP:       0/      8     0%
+Info: 	      ICESTORM_HFOSC:       0/      1     0%
+Info: 	      ICESTORM_LFOSC:       0/      1     0%
+Info: 	              SB_I2C:       0/      2     0%
+Info: 	              SB_SPI:       0/      2     0%
+Info: 	              IO_I3C:       0/      2     0%
+Info: 	         SB_LEDDA_IP:       0/      1     0%
+Info: 	         SB_RGBA_DRV:       0/      1     0%
+Info: 	      ICESTORM_SPRAM:       0/      4     0%
+Info: 	      SB_FILTER_50NS:       0/      2     0%
+
+Info: Placed 4 cells based on constraints.
+Info: Creating initial analytic placement for 6 cells, random placement wirelen = 192.
+Info:     at initial placer iter 0, wirelen = 4
+Info:     at initial placer iter 1, wirelen = 4
+Info:     at initial placer iter 2, wirelen = 4
+Info:     at initial placer iter 3, wirelen = 4
+Info: Running main analytical placer, max placement attempts per cell = 10000.
+Info:     at iteration #1, type ICESTORM_LC: wirelen solved = 4, spread = 12, legal = 11; time = 0.00s
+Info:     at iteration #1, type SB_GB: wirelen solved = 11, spread = 11, legal = 11; time = 0.00s
+Info:     at iteration #1, type ALL: wirelen solved = 4, spread = 12, legal = 14; time = 0.00s
+Info:     at iteration #2, type ICESTORM_LC: wirelen solved = 4, spread = 11, legal = 17; time = 0.00s
+Info:     at iteration #2, type SB_GB: wirelen solved = 17, spread = 17, legal = 17; time = 0.00s
+Info:     at iteration #2, type ALL: wirelen solved = 4, spread = 11, legal = 17; time = 0.00s
+Info:     at iteration #3, type ICESTORM_LC: wirelen solved = 6, spread = 10, legal = 12; time = 0.00s
+Info:     at iteration #3, type SB_GB: wirelen solved = 12, spread = 12, legal = 12; time = 0.00s
+Info:     at iteration #3, type ALL: wirelen solved = 6, spread = 10, legal = 15; time = 0.00s
+Info:     at iteration #4, type ICESTORM_LC: wirelen solved = 6, spread = 12, legal = 20; time = 0.00s
+Info:     at iteration #4, type SB_GB: wirelen solved = 20, spread = 20, legal = 20; time = 0.00s
+Info:     at iteration #4, type ALL: wirelen solved = 6, spread = 12, legal = 18; time = 0.00s
+Info:     at iteration #5, type ICESTORM_LC: wirelen solved = 6, spread = 12, legal = 21; time = 0.00s
+Info:     at iteration #5, type SB_GB: wirelen solved = 21, spread = 21, legal = 21; time = 0.00s
+Info:     at iteration #5, type ALL: wirelen solved = 6, spread = 12, legal = 14; time = 0.00s
+Info:     at iteration #6, type ICESTORM_LC: wirelen solved = 6, spread = 12, legal = 17; time = 0.00s
+Info:     at iteration #6, type SB_GB: wirelen solved = 17, spread = 17, legal = 17; time = 0.00s
+Info:     at iteration #6, type ALL: wirelen solved = 6, spread = 12, legal = 17; time = 0.00s
+Info: HeAP Placer Time: 0.02s
+Info:   of which solving equations: 0.01s
+Info:   of which spreading cells: 0.00s
+Info:   of which strict legalisation: 0.00s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 8, wirelen = 14
+Info:   at iteration #5: temp = 0.000000, timing cost = 9, wirelen = 9
+Info:   at iteration #7: temp = 0.000000, timing cost = 9, wirelen = 9 
+Info: SA placement time 0.00s
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 100.95 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> <async>: 4.40 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>: 6.12 ns
+
+Info: Slack histogram:
+Info:  legend: times are in ps
+Info:          * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 73427,  73760) |* 
+Info: [ 73760,  74093) |* 
+Info: [ 74093,  74426) |* 
+Info: [ 74426,  74759) |** 
+Info: [ 74759,  75092) |* 
+Info: [ 75092,  75425) |* 
+Info: [ 75425,  75758) |* 
+Info: [ 75758,  76091) |* 
+Info: [ 76091,  76424) |** 
+Info: [ 76424,  76757) |* 
+Info: [ 76757,  77090) |* 
+Info: [ 77090,  77423) |*********** 
+Info: [ 77423,  77756) |** 
+Info: [ 77756,  78089) |* 
+Info: [ 78089,  78422) |* 
+Info: [ 78422,  78755) | 
+Info: [ 78755,  79088) |* 
+Info: [ 79088,  79421) |** 
+Info: [ 79421,  79754) | 
+Info: [ 79754,  80087) |* 
+Info: Checksum: 0xd059a726
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 45 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:         45 |        0         36 |    0    36 |         0|       0.10       0.10|
+Info: Routing complete.
+Info: Router1 time 0.10s
+Info: Checksum: 0xce7e9036
+
+Info: Critical path report for clock 'clk$SB_IO_IN_$glb_clk' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source edges_seen_SB_DFFE_Q_9_D_SB_LUT4_O_LC.O
+Info:    routing  1.76  3.15 Net edges_seen[0] (22,2) -> (22,1)
+Info:                          Sink $nextpnr_ICESTORM_LC_0.I1
+Info:                          Defined in:
+Info:                               probe.sv:8.16-8.26
+Info:      logic  0.68  3.83 Source $nextpnr_ICESTORM_LC_0.COUT
+Info:    routing  0.00  3.83 Net $nextpnr_ICESTORM_LC_0$O (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_8_D_SB_LUT4_O_LC.CIN
+Info:      logic  0.28  4.10 Source edges_seen_SB_DFFE_Q_8_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  4.10 Net edges_seen_SB_DFFE_Q_7_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_7_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  4.38 Source edges_seen_SB_DFFE_Q_7_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  4.38 Net edges_seen_SB_DFFE_Q_6_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_6_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  4.66 Source edges_seen_SB_DFFE_Q_6_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  4.66 Net edges_seen_SB_DFFE_Q_5_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_5_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  4.94 Source edges_seen_SB_DFFE_Q_5_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  4.94 Net edges_seen_SB_DFFE_Q_4_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_4_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  5.22 Source edges_seen_SB_DFFE_Q_4_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  5.22 Net edges_seen_SB_DFFE_Q_3_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_3_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  5.49 Source edges_seen_SB_DFFE_Q_3_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  5.49 Net edges_seen_SB_DFFE_Q_2_D_SB_LUT4_O_I3 (22,1) -> (22,1)
+Info:                          Sink edges_seen_SB_DFFE_Q_2_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  5.77 Source edges_seen_SB_DFFE_Q_2_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.56  6.33 Net edges_seen_SB_DFFE_Q_1_D_SB_LUT4_O_I3 (22,1) -> (22,2)
+Info:                          Sink edges_seen_SB_DFFE_Q_1_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  6.61 Source edges_seen_SB_DFFE_Q_1_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  6.61 Net edges_seen_SB_DFFE_Q_D_SB_LUT4_O_I3 (22,2) -> (22,2)
+Info:                          Sink edges_seen_SB_DFFE_Q_D_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  6.88 Source edges_seen_SB_DFFE_Q_D_SB_LUT4_O_LC.COUT
+Info:    routing  0.66  7.55 Net $nextpnr_ICESTORM_LC_1$I3 (22,2) -> (22,2)
+Info:                          Sink $nextpnr_ICESTORM_LC_1.I3
+Info:      logic  0.87  8.42 Source $nextpnr_ICESTORM_LC_1.O
+Info:    routing  1.76  10.18 Net edges_seen_SB_DFFSS_Q_D_SB_LUT4_O_I3 (22,2) -> (23,2)
+Info:                          Sink edges_seen_SB_DFFSS_Q_D_SB_LUT4_O_LC.I3
+Info:                          Defined in:
+Info:                               probe.sv:10.44-10.61
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /home/beepborp/tools/oss-cad-suite/lib/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      setup  0.82  11.01 Source edges_seen_SB_DFFSS_Q_D_SB_LUT4_O_LC.I3
+Info: 6.26 ns logic, 4.74 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> '<async>':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source spi_mosi$sb_io.D_IN_0
+Info:    routing  1.76  1.76 Net spi_mosi$SB_IO_IN (23,0) -> (23,1)
+Info:                          Sink spi_mosi_SB_LUT4_I3_LC.I3
+Info:                          Defined in:
+Info:                               probe.sv:3.16-3.24
+Info:      logic  0.87  2.63 Source spi_mosi_SB_LUT4_I3_LC.O
+Info:    routing  1.76  4.40 Net spi_mosi_SB_LUT4_I3_O (23,1) -> (23,0)
+Info:                          Sink spi_miso$sb_io.D_OUT_0
+Info: 0.87 ns logic, 3.52 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk$SB_IO_IN_$glb_clk' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source edges_seen_SB_DFFSS_Q_D_SB_LUT4_O_LC.O
+Info:    routing  1.76  3.15 Net edges_seen[10] (23,2) -> (23,1)
+Info:                          Sink spi_mosi_SB_LUT4_I3_LC.I2
+Info:                          Defined in:
+Info:                               probe.sv:8.16-8.26
+Info:      logic  1.21  4.36 Source spi_mosi_SB_LUT4_I3_LC.O
+Info:    routing  1.76  6.12 Net spi_mosi_SB_LUT4_I3_O (23,1) -> (23,0)
+Info:                          Sink spi_miso$sb_io.D_OUT_0
+Info: 2.60 ns logic, 3.52 ns routing
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 90.87 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> <async>: 4.40 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>: 6.12 ns
+
+Info: Slack histogram:
+Info:  legend: times are in ps
+Info:          * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 72328,  72680) |** 
+Info: [ 72680,  73032) |* 
+Info: [ 73032,  73384) |* 
+Info: [ 73384,  73736) |* 
+Info: [ 73736,  74088) |** 
+Info: [ 74088,  74440) |* 
+Info: [ 74440,  74792) | 
+Info: [ 74792,  75144) | 
+Info: [ 75144,  75496) |*** 
+Info: [ 75496,  75848) |* 
+Info: [ 75848,  76200) | 
+Info: [ 76200,  76552) |* 
+Info: [ 76552,  76904) |* 
+Info: [ 76904,  77256) |** 
+Info: [ 77256,  77608) |*********** 
+Info: [ 77608,  77960) |* 
+Info: [ 77960,  78312) | 
+Info: [ 78312,  78664) | 
+Info: [ 78664,  79016) |* 
+Info: [ 79016,  79368) |*** 
+
+Info: Program finished normally.
