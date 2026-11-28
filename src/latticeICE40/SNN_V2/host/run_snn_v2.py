@@ -1,4 +1,13 @@
 """Check UPduino SNN V2 inference through the onboard FTDI."""
+# to run:
+# $tokens = 'C:\Users\ethan\Documents\Duke\Classes\Neuromorphic\Stanford_Murine_Processed_RFData_SNNV2\Tokens\float32'
+# One real frame with per-token checks
+# python host/run_snn_v2.py --port COM7 --normalized "$tokens\rat01_frame00.npy" --trace
+# Whole folder in filename order, with one report for all frames
+# python host/run_snn_v2.py --port COM7 --normalized "$tokens" --output fpga_real.json
+# Original synthetic smoke test, expected Q20 score -1055882
+# python host/run_snn_v2.py --port COM7 --dummy --trace
+
 import argparse
 from binascii import crc_hqx
 from contextlib import nullcontext

@@ -1,0 +1,6 @@
+# FPGA package pins, for the stock flash wiring (R12/R13).
+set_io clk 20
+set_io spi_sck 15
+set_io spi_mosi 14
+set_io spi_miso 17
+set_io flash_cs_n 16

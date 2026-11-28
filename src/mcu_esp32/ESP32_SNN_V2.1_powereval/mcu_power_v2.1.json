@@ -1,0 +1,43 @@
+{
+  "runs": [
+    {
+      "mode": "power_benchmark",
+      "requested_seconds": 30,
+      "inferences": 27354,
+      "elapsed_us": 30001002,
+      "mean_us_per_inference": 1096.7683702566353,
+      "inferences_per_second": 911.7695468971335,
+      "score": -0.8450546,
+      "rail_voltage_v": 3.3,
+      "cpu_mhz": 160,
+      "request_timestamp_utc": "2026-11-28T00:05:48.792521+00:00",
+      "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\skip8_V2.1_1127\\tokens\\float32\\rat01_frame00.npy"
+    },
+    {
+      "mode": "power_benchmark",
+      "requested_seconds": 30,
+      "inferences": 41288,
+      "elapsed_us": 30000597,
+      "mean_us_per_inference": 726.6178308467352,
+      "inferences_per_second": 1376.2392795050046,
+      "score": -0.8450546,
+      "rail_voltage_v": 3.3,
+      "cpu_mhz": 240,
+      "request_timestamp_utc": "2026-11-28T00:10:44.562622+00:00",
+      "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\skip8_V2.1_1127\\tokens\\float32\\rat01_frame00.npy"
+    },
+    {
+      "mode": "power_benchmark",
+      "requested_seconds": 30,
+      "inferences": 13530,
+      "elapsed_us": 30001124,
+      "mean_us_per_inference": 2217.377974870658,
+      "inferences_per_second": 450.98310316640135,
+      "score": -0.8450546,
+      "rail_voltage_v": 3.3,
+      "cpu_mhz": 80,
+      "request_timestamp_utc": "2026-11-28T00:32:43.434447+00:00",
+      "input": "C:\\Users\\ethan\\Documents\\Duke\\Classes\\Neuromorphic\\Stanford_Murine_Processed_RFData_SNNV2\\skip8_V2.1_1127\\tokens\\float32\\rat01_frame00.npy"
+    }
+  ]
+}

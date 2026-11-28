@@ -1,0 +1,42 @@
+{
+  "architecture": "skip8",
+  "width": 8,
+  "skip": true,
+  "gain": 81.0234375,
+  "target_mean": 17.43912124633789,
+  "target_scale": 10,
+  "seed": 42,
+  "checkpoint_sha256": "1cb9d80841f3c3ccdd0e045960b3fecc602d1ed402b7b6aafbe6fe04a1b1df88",
+  "weights_sha256": "16cfb6c8ee5e4f7bd4f9a1edd700b14bd9cd419854e5bb6f158eefe0d4d0cb22",
+  "parameters": 665,
+  "weight_fraction": 15,
+  "input_fraction": 12,
+  "voltage_fraction": 18,
+  "score_fraction": 20,
+  "model": "snn_skip8",
+  "clip": 5.0,
+  "train_rats": [
+    7,
+    14,
+    2,
+    19,
+    5,
+    11,
+    1,
+    16,
+    9,
+    20,
+    4,
+    13,
+    8,
+    17,
+    3,
+    12
+  ],
+  "validation_rats": [
+    6,
+    10,
+    15,
+    18
+  ]
+}
